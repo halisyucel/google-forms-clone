@@ -1,5 +1,5 @@
 {
-  "name": "client-source",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,8 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.6.3",
+    "normalize.css": "^8.0.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "6",
+    "sass": "^1.51.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
