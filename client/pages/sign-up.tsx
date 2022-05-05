@@ -1,11 +1,8 @@
-import React  from 'react';
-import { Button, CardActions, CardContent, Checkbox, TextField } from "@mui/material";
-import { createHelperText } from '../lib/helper';
+import React, { ChangeEvent } from 'react';
+import { Button, CardActions, CardContent, Checkbox, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import GoogleGlobalLayout from '../components/google-global-layout';
 import useSignUp from '../hooks/useSignUp';
-
-// TODO burada da useMemo kullan
 
 const SignUp = () => {
 	const {
@@ -16,10 +13,9 @@ const SignUp = () => {
 		password,
 		passwordConfirm,
 		showPassword,
-		formValidation,
+		handleSubmit,
 		setFormInput,
 		setShowPassword,
-		setLoading,
 		namesHelperText,
 		passwordsHelperText,
 		usernameHelperText
@@ -48,7 +44,7 @@ const SignUp = () => {
 								spellCheck={false}
 								error={firstName.error}
 								value={firstName.value}
-								onChange={(e) => setFormInput('firstName', 'value', e.target.value)}
+								onChange={(e: ChangeEvent<HTMLInputElement>) => setFormInput('firstName', 'value', e.target.value)}
 								autoComplete={'off'}
 							/>
 							<TextField
@@ -59,11 +55,11 @@ const SignUp = () => {
 								spellCheck={false}
 								error={lastName.error}
 								value={lastName.value}
-								onChange={(e) => setFormInput('lastName', 'value', e.target.value)}
+								onChange={(e: ChangeEvent<HTMLInputElement>) => setFormInput('lastName', 'value', e.target.value)}
 								autoComplete={'off'}
 							/>
 						</div>
-						{createHelperText(namesHelperText)}
+						{namesHelperText}
 						<TextField
 							className={'sign_up__content__body__form__username'}
 							size={'small'}
@@ -72,13 +68,13 @@ const SignUp = () => {
 							spellCheck={false}
 							error={username.error}
 							value={username.value}
-							onChange={(e) => setFormInput('username', 'value', e.target.value)}
+							onChange={(e: ChangeEvent<HTMLInputElement>) => setFormInput('username', 'value', e.target.value)}
 							autoComplete={'off'}
 							InputProps={{
 								endAdornment: <span style={{ paddingLeft: '8px' }}>@gmail.com</span>,
 							}}
 						/>
-						{createHelperText(usernameHelperText)}
+						{usernameHelperText}
 						<div className={'sign_up__content__body__form__danger'}>
 							This is just a clone app. Please do not use your real google username and password!
 						</div>
@@ -91,7 +87,7 @@ const SignUp = () => {
 								spellCheck={false}
 								error={password.error}
 								value={password.value}
-								onChange={(e) => setFormInput('password', 'value', e.target.value)}
+								onChange={(e: ChangeEvent<HTMLInputElement>) => setFormInput('password', 'value', e.target.value)}
 								type={showPassword ? 'text' : 'password'}
 								autoComplete={'off'}
 							/>
@@ -103,12 +99,13 @@ const SignUp = () => {
 								spellCheck={false}
 								error={passwordConfirm.error}
 								value={passwordConfirm.value}
-								onChange={(e) => setFormInput('passwordConfirm', 'value', e.target.value)}
+								onChange={(e: ChangeEvent<HTMLInputElement>) => setFormInput('passwordConfirm', 'value', e.target.value)}
 								type={showPassword ? 'text' : 'password'}
 								autoComplete={'off'}
+								onKeyPress={(e) => (e.key === 'Enter') && handleSubmit()}
 							/>
 						</div>
-						{createHelperText(passwordsHelperText)}
+						{passwordsHelperText}
 						<label className={'show_password'}>
 							<Checkbox checked={showPassword} onChange={() => setShowPassword(!showPassword)} />
 							<span>Show password</span>
@@ -133,7 +130,7 @@ const SignUp = () => {
 				<Button
 					variant={'contained'}
 					className={'sign_up__footer__button'}
-					onClick={() => (1)}
+					onClick={handleSubmit}
 				>
 					Next
 				</Button>

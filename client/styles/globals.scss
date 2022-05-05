@@ -31,10 +31,9 @@ a {
     line-height: 20px;
 }
 .show_password {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
     margin-left: -9px;
     font-size: 14px;
     font-weight: 400;

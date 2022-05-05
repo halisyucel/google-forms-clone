@@ -999,6 +999,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
+lookie@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/lookie/-/lookie-1.0.4.tgz#5ef1fe3c5290653c4d7e1fe01b84d7acd6eb5674"
+  integrity sha512-tdZIrnFuRlZP7DR3Zd/EZKuGtVNiVrER3GqbxT4pErvRZsxewQKkli3h410Efyt2JBX47/X6V6OU33g4ARQj4g==
+
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import { Button, CardActions, CardContent, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import GoogleGlobalLayout from '../../components/google-global-layout';
@@ -39,7 +39,7 @@ const SignIn = () => {
 						error={username.error}
 						value={username.value}
 						spellCheck={false}
-						onChange={(e) => {
+						onChange={(e: ChangeEvent<HTMLInputElement>) => {
 							setUsername({
 								value: e.target.value,
 								error: username.error,
