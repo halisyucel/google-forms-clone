@@ -2,6 +2,8 @@
     --font-noto-sans: 'Noto Sans', sans-serif;
     --color-black: rgb(32, 33, 36);
     --color-blue: rgb(26, 115, 232);
+    --color-gray: rgb(117, 117, 117);
+    --color-red: rgb(211, 47, 47);
 }
 html, body {
     height: 100%;
@@ -10,4 +12,34 @@ html, body {
 #root {
     height: 100%;
     width: 100%;
+}
+a {
+    color: var(--color-blue);
+    font-size: 14px;
+    line-height: 20px;
+    font-family: var(--font-noto-sans);
+    font-weight: 500;
+    text-decoration: none;
+}
+.helper_text {
+    margin-top: 4px;
+    padding-left: 12px;
+    font-family: var(--font-noto-sans);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--color-black);
+    line-height: 20px;
+}
+.show_password {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: -9px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-noto-sans);
+    color: var(--color-black);
+    line-height: 20px;
+    cursor: pointer;
 }
