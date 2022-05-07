@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 interface HelperText {
 	type: 'error' | 'info' | 'none',
@@ -31,11 +31,18 @@ interface WorkspacePopUpProps {
 	isOpen: boolean
 }
 
+type GoogleGlobalLayoutProps = {
+	children: React.ReactNode,
+	loading: boolean,
+	containerClassName?: string,
+};
+
 export type {
 	HelperText,
 	FormElement,
 	PasswordParams,
 	ElevationScrollProps,
 	WorkspaceTool,
-	WorkspacePopUpProps
+	WorkspacePopUpProps,
+	GoogleGlobalLayoutProps,
 };

@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react';
 import { ElevationScrollProps, WorkspaceTool } from './types';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import styles from '../styles/components/workspace-pop-up.module.scss';
 
 export const tools: WorkspaceTool[] = [
 	{
@@ -57,13 +58,13 @@ export function mapTools(tools: WorkspaceTool[]): JSX.Element[] {
 	return tools.map((item: WorkspaceTool, index: number) => (
 		<a
 			key={index}
-			className={'workspace_pop_up__paper__tools__column__tool'}
+			className={styles.workspace_pop_up__paper__tools__column__tool}
 			href={item.url}
 			target={'_blank'}
 			rel={'noopener noreferrer'}
 			>
 			<img src={item.icon} alt={item.name}/>
-			<div className={'workspace_pop_up__paper__tools__column__tool__content'}>
+			<div className={styles.workspace_pop_up__paper__tools__column__tool__content}>
 				<p>{item.name}</p>
 				<p>{item.description}</p>
 				</div>

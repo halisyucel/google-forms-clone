@@ -3,6 +3,7 @@ import { Avatar, Button, CardActions, CardContent, Checkbox, Chip, TextField } f
 import { Link } from 'react-router-dom';
 import GoogleGlobalLayout from '../../components/google-global-layout';
 import usePassword from '../../hooks/usePassword';
+import styles from '../../styles/pages/sign-in.password.module.scss';
 
 const Password = () => {
 	const {
@@ -16,21 +17,21 @@ const Password = () => {
 		setShowPassword,
 	} = usePassword();
 	return (
-		<GoogleGlobalLayout containerClassName={'password__container'} loading={loading}>
-			<CardContent className={'password__content'}>
-				<div className={'password__content__header'}>
+		<GoogleGlobalLayout containerClassName={styles.password__container} loading={loading}>
+			<CardContent className={styles.password__content}>
+				<div className={styles.password__content__header}>
 					<img
 						src={'/clone.svg'}
 						alt={'Google Logo'}
-						className={'password__content__header__logo'}
+						className={styles.password__content__header__logo}
 					/>
-					<div className={'password__content__header__texts'}>
-						<div className={'password__content__header__texts__welcome'}>
+					<div className={styles.password__content__header__texts}>
+						<div className={styles.password__content__header__texts__welcome}>
 							Welcome
 						</div>
 						<Link to={'/sign-in'}>
 							<Chip
-								className={'password__content__header__texts__chip'}
+								className={styles.password__content__header__texts__chip}
 								avatar={<Avatar>{params.username?.slice(0,1).toUpperCase()}</Avatar>}
 								label={`${params.username}@gmail.com`}
 								variant={'outlined'}
@@ -38,10 +39,10 @@ const Password = () => {
 						</Link>
 					</div>
 				</div>
-				<div className={'password__content__body'}>
+				<div className={styles.password__content__body}>
 					<TextField
 						id={'password_input'}
-						className={'password__content__body__input'}
+						className={styles.password__content__body__input}
 						label={'Enter your password'}
 						type={showPassword ? 'text' : 'password'}
 						variant={'outlined'}
@@ -58,17 +59,17 @@ const Password = () => {
 					</label>
 				</div>
 			</CardContent>
-			<CardActions className={'password__footer'}>
+			<CardActions className={styles.password__footer}>
 				<Link to={'/just-clone'}>
 					<Button
-						className={'password__footer__button'}
+						className={styles.password__footer__button}
 					>
 						Forgot password?
 					</Button>
 				</Link>
 				<Button
 					variant={'contained'}
-					className={'password__footer__button'}
+					className={styles.password__footer__button}
 					onClick={handleSubmit}
 					disableElevation={true}
 				>

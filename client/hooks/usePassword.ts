@@ -40,7 +40,7 @@ export default () => {
 						setLoading(false);
 						setPassword({ value: password.value, error: false });
 						setPasswordHelperTextProps({ type: 'none' });
-						navigate(`/`);
+						navigate('/dashboard');
 					}
 				})
 				.catch(() => {

@@ -11,7 +11,7 @@ import NotFound from './pages/not-found';
 import Example from './pages/example';
 import JustClone from './pages/just-clone';
 import 'normalize.css';
-import './styles/index.scss';
+import './styles/globals.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>

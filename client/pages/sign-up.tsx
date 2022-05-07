@@ -3,6 +3,7 @@ import { Button, CardActions, CardContent, Checkbox, TextField } from '@mui/mate
 import { Link } from 'react-router-dom';
 import GoogleGlobalLayout from '../components/google-global-layout';
 import useSignUp from '../hooks/useSignUp';
+import styles from '../styles/pages/sign-up.module.scss';
 
 const SignUp = () => {
 	const {
@@ -21,23 +22,23 @@ const SignUp = () => {
 		usernameHelperText
 	} = useSignUp();
 	return (
-		<GoogleGlobalLayout containerClassName={'sign_up__container'} loading={loading}>
-			<CardContent className={'sign_up__content'}>
-				<div className={'sign_up__content__header'}>
+		<GoogleGlobalLayout containerClassName={styles.sign_up__container} loading={loading}>
+			<CardContent className={styles.sign_up__content}>
+				<div className={styles.sign_up__content__header}>
 					<img
 						src={'/clone.svg'}
 						alt={'Google Logo'}
-						className={'sign_up__content__header__logo'}
+						className={styles.sign_up__content__header__logo}
 					/>
-					<div className={'sign_up__content__header__texts'}>
+					<div className={styles.sign_up__content__header__texts}>
 						Create your Google Account
 					</div>
 				</div>
-				<div className={'sign_up__content__body'}>
-					<div className={'sing_up__content__body__form'}>
-						<div className={'sign_up__content__body__form__input_area'}>
+				<div className={styles.sign_up__content__body}>
+					<div className={styles.sing_up__content__body__form}>
+						<div className={styles.sign_up__content__body__form__input_area}>
 							<TextField
-								className={'sign_up__content__body__form__input_area__input'}
+								className={styles.sign_up__content__body__form__input_area__input}
 								size={'small'}
 								label={'First Name'}
 								name={'firstName'}
@@ -48,7 +49,7 @@ const SignUp = () => {
 								autoComplete={'off'}
 							/>
 							<TextField
-								className={'sign_up__content__body__form__input_area__input'}
+								className={styles.sign_up__content__body__form__input_area__input}
 								size={'small'}
 								label={'Last Name'}
 								name={'lastName'}
@@ -61,7 +62,7 @@ const SignUp = () => {
 						</div>
 						{namesHelperText}
 						<TextField
-							className={'sign_up__content__body__form__username'}
+							className={styles.sign_up__content__body__form__username}
 							size={'small'}
 							label={'Username'}
 							name={'username'}
@@ -75,12 +76,12 @@ const SignUp = () => {
 							}}
 						/>
 						{usernameHelperText}
-						<div className={'sign_up__content__body__form__danger'}>
+						<div className={styles.sign_up__content__body__form__danger}>
 							This is just a clone app. Please do not use your real google username and password!
 						</div>
-						<div className={'sign_up__content__body__form__input_area'}>
+						<div className={styles.sign_up__content__body__form__input_area}>
 							<TextField
-								className={'sign_up__content__body__form__input_area__input'}
+								className={styles.sign_up__content__body__form__input_area__input}
 								size={'small'}
 								label={'Password'}
 								name={'password'}
@@ -92,7 +93,7 @@ const SignUp = () => {
 								autoComplete={'off'}
 							/>
 							<TextField
-								className={'sign_up__content__body__form__input_area__input'}
+								className={styles.sign_up__content__body__form__input_area__input}
 								size={'small'}
 								label={'Confirm'}
 								name={'passwordConfirm'}
@@ -111,25 +112,25 @@ const SignUp = () => {
 							<span>Show password</span>
 						</label>
 					</div>
-					<figure className={'sing_up__content__body__image'}>
+					<figure className={styles.sing_up__content__body__image}>
 						<img src={'/account.svg'}  alt={'Google Account'}/>
-						<figcaption className={'sing_up__content__body__image__caption'}>
+						<figcaption className={styles.sing_up__content__body__image__caption}>
 							One account. All of Google working for you.
 						</figcaption>
 					</figure>
 				</div>
 			</CardContent>
-			<CardActions className={'sign_up__footer'}>
+			<CardActions className={styles.sign_up__footer}>
 				<Link to={'/sign-in'}>
 					<Button
-						className={'sign_up__footer__button'}
+						className={styles.sign_up__footer__button}
 					>
 						Sign in instead
 					</Button>
 				</Link>
 				<Button
 					variant={'contained'}
-					className={'sign_up__footer__button'}
+					className={styles.sign_up__footer__button}
 					onClick={handleSubmit}
 					disableElevation={true}
 				>

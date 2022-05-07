@@ -4,6 +4,7 @@ import { ElevationScroll } from '../lib/home';
 import { Link, useNavigate } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import WorkspacePopUp from './workspace-pop-up';
+import styles from '../styles/components/home-header.module.scss';
 
 const HomeHeader = () => {
 	const navigate = useNavigate();
@@ -11,10 +12,10 @@ const HomeHeader = () => {
 	const [toolsIsOpen, setToolsIsOpen] = useState<boolean>(false);
 	return (
 		<ElevationScroll>
-			<AppBar className={'header'}>
+			<AppBar className={styles.header}>
 				<Link
 					to={'/'}
-					className={'header__logo'}>
+					className={styles.header__logo}>
 					<img
 						src={'/logo.svg'}
 						alt={'Google Forms Clone'}
@@ -23,33 +24,33 @@ const HomeHeader = () => {
 				<Tabs
 					value={tab}
 					onChange={(_event: SyntheticEvent, value: number) => setTab(value)}
-					className={'header__tabs'}
+					className={styles.header__tabs}
 				>
-					<Tab label={'Overview'} className={'header__tabs__tab'} />
-					<Tab label={'Features'} className={'header__tabs__tab'} />
-					<Tab label={'Security'} className={'header__tabs__tab'} />
-					<Tab label={'Pricing'} className={'header__tabs__tab'} />
+					<Tab label={'Overview'} className={styles.header__tabs__tab} />
+					<Tab label={'Features'} className={styles.header__tabs__tab} />
+					<Tab label={'Security'} className={styles.header__tabs__tab} />
+					<Tab label={'Pricing'} className={styles.header__tabs__tab} />
 				</Tabs>
 				<div style={{ flex: '1' }} />
-				<div className={'header__buttons'}>
+				<div className={styles.header__buttons}>
 					<Button
 						size={'large'}
-						className={'header__buttons__button'}
+						className={styles.header__buttons__button}
 						onClick={() => setToolsIsOpen(!toolsIsOpen)}
 					>
 						More Tools
-						<KeyboardArrowDownIcon className={'header__buttons__button__icon'} />
+						<KeyboardArrowDownIcon className={styles.header__buttons__button__icon} />
 					</Button>
 					<Button
 						size={'large'}
-						className={'header__buttons__button'}
+						className={styles.header__buttons__button}
 						onClick={() => navigate('/sign-in')}
 					>
 						Sign in
 					</Button>
 					<Button
 						size={'large'}
-						className={'header__buttons__button'}
+						className={styles.header__buttons__button}
 						variant={'outlined'}
 						onClick={() => navigate('/dashboard')}
 					>
@@ -57,7 +58,7 @@ const HomeHeader = () => {
 					</Button>
 					<Button
 						size={'large'}
-						className={'header__buttons__button'}
+						className={styles.header__buttons__button}
 						variant={'contained'}
 						disableElevation={true}
 						onClick={() => navigate('/dashboard')}
