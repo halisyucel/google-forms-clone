@@ -18,7 +18,10 @@ export default () => {
 		type: 'none'
 	});
 	const passwordHelperText = useMemo(() => createHelperText(passwordHelperTextProps), [passwordHelperTextProps]);
-	useEffect(() => document.getElementById('password_input')!.focus(), []);
+	useEffect(() => {
+		const passwordInput = document.getElementById('password_input') as HTMLElement;
+		passwordInput.focus();
+	}, []);
 	const handleSubmit = useCallback(() => {
 		if (password.value.trim().length === 0) {
 			setPassword({ value: password.value, error: true });
@@ -64,4 +67,4 @@ export default () => {
 		setPassword,
 		setShowPassword,
 	};
-}
+};

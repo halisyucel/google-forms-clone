@@ -62,14 +62,14 @@ export function mapTools(tools: WorkspaceTool[]): JSX.Element[] {
 			href={item.url}
 			target={'_blank'}
 			rel={'noopener noreferrer'}
-			>
+		>
 			<img src={item.icon} alt={item.name}/>
 			<div className={styles.workspace_pop_up__paper__tools__column__tool__content}>
 				<p>{item.name}</p>
 				<p>{item.description}</p>
-				</div>
+			</div>
 		</a>
-	))
+	));
 }
 
 export function ElevationScroll(props: ElevationScrollProps) {

@@ -32,23 +32,23 @@ export default function useSignUp() {
 	const passwordsHelperText = useMemo(() => createHelperText(passwordsHelperTextProps), [passwordsHelperTextProps]);
 	const setFormInput = useCallback((inputName: string, key: string, value: string | boolean) => {
 		switch (inputName) {
-			case 'firstName':
-				setFirstName({ ...firstName, [key]: value });
-				break;
-			case 'lastName':
-				setLastName({ ...lastName, [key]: value });
-				break;
-			case 'username':
-				setUsername({ ...username, [key]: value });
-				break;
-			case 'password':
-				setPassword({ ...password, [key]: value });
-				break;
-			case 'passwordConfirm':
-				setPasswordConfirm({ ...passwordConfirm, [key]: value });
-				break;
-			default:
-				break;
+		case 'firstName':
+			setFirstName({ ...firstName, [key]: value });
+			break;
+		case 'lastName':
+			setLastName({ ...lastName, [key]: value });
+			break;
+		case 'username':
+			setUsername({ ...username, [key]: value });
+			break;
+		case 'password':
+			setPassword({ ...password, [key]: value });
+			break;
+		case 'passwordConfirm':
+			setPasswordConfirm({ ...passwordConfirm, [key]: value });
+			break;
+		default:
+			break;
 		}
 	}, [
 		firstName,
@@ -95,7 +95,7 @@ export default function useSignUp() {
 				setFormInput('password', 'error', true);
 				setPasswordsHelperTextProps({ type: 'error', message: 'Use 8 characters or more for your password' });
 				result = false;
-			} else if (!(new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()\[\]{}?_|#$,;:]+$/).test(password.value))) {
+			} else if (!(new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/).test(password.value))) {
 				setFormInput('password', 'error', true);
 				setPasswordsHelperTextProps({ type: 'error', message: 'Only use letters, numbers, and common punctuation characters' });
 				result = false;
@@ -103,7 +103,7 @@ export default function useSignUp() {
 				setFormInput('password', 'error', false);
 		})();
 		(() => {
-			if (passwordConfirm.value !== password.value && (new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()\[\]{}?_|#$,;:]+$/).test(password.value))) {
+			if (passwordConfirm.value !== password.value && (new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/).test(password.value))) {
 				setFormInput('passwordConfirm', 'error', true);
 				setPasswordsHelperTextProps({ type: 'error', message: 'Those passwords didn\'t match. Try again.' });
 				result = false;
@@ -157,7 +157,7 @@ export default function useSignUp() {
 						setFormInput('username', 'error', false);
 						setUsernameHelperTextProps({ type: 'none' });
 						lookie.set('token', response.data.token, '8h');
-						navigate(`/`);
+						navigate('/');
 					}
 				})
 				.catch((error: AxiosError) => {
@@ -169,7 +169,7 @@ export default function useSignUp() {
 						setLoading(false);
 						navigate('/error');
 					}
-				})
+				});
 		}
 	}, [
 		formValidation,
@@ -193,4 +193,4 @@ export default function useSignUp() {
 		passwordsHelperText,
 		usernameHelperText
 	};
-};
+}
