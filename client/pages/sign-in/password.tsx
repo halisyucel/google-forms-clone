@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { Avatar, Button, CardActions, CardContent, Checkbox, Chip, TextField } from '@mui/material';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GoogleCardLayout from '../../components/global/google-card-layout';
 import usePassword from '../../hooks/usePassword';
@@ -18,6 +19,9 @@ const Password = () => {
 	} = usePassword();
 	return (
 		<GoogleCardLayout containerClassName={styles.password__container} loading={loading}>
+			<Helmet>
+				<title>Google Forms Clone: Sign-in</title>
+			</Helmet>
 			<CardContent className={styles.password__content}>
 				<div className={styles.password__content__header}>
 					<img

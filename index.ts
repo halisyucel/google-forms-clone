@@ -11,11 +11,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'OK' });
+	res.json({ message: 'OK' });
 });
 
 app.use('/api/user', UserRoute);
 
 app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+	console.log(`[server]: Server is running at http://localhost:${port}`);
 });

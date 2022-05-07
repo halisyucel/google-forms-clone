@@ -1,5 +1,6 @@
-import React, {ChangeEvent} from 'react';
+import React, { ChangeEvent } from 'react';
 import { Button, CardActions, CardContent, TextField } from '@mui/material';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GoogleCardLayout from '../../components/global/google-card-layout';
 import useSignIn from '../../hooks/useSignIn';
@@ -15,6 +16,9 @@ const SignIn = () => {
 	} = useSignIn();
 	return (
 		<GoogleCardLayout containerClassName={styles.sign_in__container} loading={loading}>
+			<Helmet>
+				<title>Google Forms Clone: Sign-in</title>
+			</Helmet>
 			<CardContent className={styles.sign_in__content}>
 				<div className={styles.sign_in__content__header}>
 					<img

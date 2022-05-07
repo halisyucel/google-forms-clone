@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
 import { sequelize } from '../services/db.service';
 import Joi from 'joi';
 
@@ -6,7 +6,7 @@ export const UserSignUpSchema = Joi.object({
 	firstName: Joi.string().required(),
 	lastName: Joi.string().required(),
 	username: Joi.string().required().regex(/^[a-zA-Z0-9.]+$/),
-	password: Joi.string().required().min(8).regex(/^[a-zA-Z0-9.+\-*/!'^%&()\[\]{}?_|#$,;:]+$/),
+	password: Joi.string().required().min(8).regex(/^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/),
 });
 
 export const UserSignInSchema = Joi.object({

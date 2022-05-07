@@ -11,7 +11,7 @@ export const checkUser = async (req: Request, res: Response) => {
 	if (user === null)
 		return res.status(404).json({ message: 'User not found' });
 	return res.status(200).json({ status: true });
-}
+};
 
 export const signIn = async (req: Request, res: Response) => {
 	const { error, value } = UserSignInSchema.validate(req.body);
@@ -24,7 +24,7 @@ export const signIn = async (req: Request, res: Response) => {
 		return res.status(401).json({ message: 'Invalid password' });
 	const token = createJwtToken(user);
 	return res.json({ token });
-}
+};
 
 export const signUp = async (req: Request, res: Response) => {
 	const { error, value } = UserSignUpSchema.validate(req.body);
@@ -43,4 +43,4 @@ export const signUp = async (req: Request, res: Response) => {
 		return res.json({ token });
 	}
 	return res.status(409).json({ message: 'Username already exists' });
-}
+};
