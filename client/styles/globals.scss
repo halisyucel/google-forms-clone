@@ -44,3 +44,18 @@ a {
     line-height: 20px;
     cursor: pointer;
 }
+.MuiButton-sizeLarge {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    text-transform: unset !important;
+    height: 50px !important;
+}
+.MuiButton-text {
+    font-weight: 400 !important;
+}
+.MuiButton-outlined, .MuiButton-text {
+    color: var(--color-blue) !important;
+}
+.MuiButton-contained {
+    background-color: var(--color-blue) !important;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, LinearProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { GoogleGlobalLayoutProps } from '../lib/types';
-import styles from '../styles/components/google-global-layout.module.scss';
+import { GoogleCardLayoutProps } from '../../lib/types';
+import styles from '../../styles/components/google-global-layout.module.scss';
 
-const GoogleGlobalLayout = (props: GoogleGlobalLayoutProps) => {
+const GoogleCardLayout = (props: GoogleCardLayoutProps) => {
 	return (
 		<div className={styles.google_global_layout}>
 			<div className={`${styles.google_global_layout__container} ${props.containerClassName}`.trim()}>
@@ -36,4 +36,4 @@ const GoogleGlobalLayout = (props: GoogleGlobalLayoutProps) => {
 	);
 };
 
-export default GoogleGlobalLayout;
+export default GoogleCardLayout;

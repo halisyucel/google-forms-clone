@@ -1,12 +1,12 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { AppBar, Button, Tab, Tabs } from '@mui/material';
-import { ElevationScroll } from '../lib/home';
+import { ElevationScroll } from '../../lib/home';
 import { Link, useNavigate } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import WorkspacePopUp from './workspace-pop-up';
-import styles from '../styles/components/home-header.module.scss';
+import styles from '../../styles/components/home.header.module.scss';
 
-const HomeHeader = () => {
+const Header = () => {
 	const navigate = useNavigate();
 	const [tab, setTab] = useState<number>(0);
 	const [toolsIsOpen, setToolsIsOpen] = useState<boolean>(false);
@@ -72,4 +72,4 @@ const HomeHeader = () => {
 	);
 };
 
-export default HomeHeader;
+export default Header;

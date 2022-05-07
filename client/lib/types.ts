@@ -31,7 +31,7 @@ interface WorkspacePopUpProps {
 	isOpen: boolean
 }
 
-type GoogleGlobalLayoutProps = {
+type GoogleCardLayoutProps = {
 	children: React.ReactNode,
 	loading: boolean,
 	containerClassName?: string,
@@ -44,5 +44,5 @@ export type {
 	ElevationScrollProps,
 	WorkspaceTool,
 	WorkspacePopUpProps,
-	GoogleGlobalLayoutProps,
+	GoogleCardLayoutProps,
 };

@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { Avatar, Button, CardActions, CardContent, Checkbox, Chip, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-import GoogleGlobalLayout from '../../components/google-global-layout';
+import GoogleCardLayout from '../../components/global/google-card-layout';
 import usePassword from '../../hooks/usePassword';
 import styles from '../../styles/pages/sign-in.password.module.scss';
 
@@ -17,7 +17,7 @@ const Password = () => {
 		setShowPassword,
 	} = usePassword();
 	return (
-		<GoogleGlobalLayout containerClassName={styles.password__container} loading={loading}>
+		<GoogleCardLayout containerClassName={styles.password__container} loading={loading}>
 			<CardContent className={styles.password__content}>
 				<div className={styles.password__content__header}>
 					<img
@@ -76,7 +76,7 @@ const Password = () => {
 					Next
 				</Button>
 			</CardActions>
-		</GoogleGlobalLayout>
+		</GoogleCardLayout>
 	);
 };
 

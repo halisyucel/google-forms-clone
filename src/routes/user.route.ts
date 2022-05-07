@@ -9,4 +9,6 @@ router.post('/sign-in', UserController.signIn);
 
 router.post('/sign-up', UserController.signUp);
 
+// TODO - hesabı silme özelliği ekleyelim
+
 export default router;

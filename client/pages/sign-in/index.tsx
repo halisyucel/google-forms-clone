@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import { Button, CardActions, CardContent, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-import GoogleGlobalLayout from '../../components/google-global-layout';
+import GoogleCardLayout from '../../components/global/google-card-layout';
 import useSignIn from '../../hooks/useSignIn';
 import styles from '../../styles/pages/sign-in.module.scss';
 
@@ -14,7 +14,7 @@ const SignIn = () => {
 		setUsername,
 	} = useSignIn();
 	return (
-		<GoogleGlobalLayout containerClassName={styles.sign_in__container} loading={loading}>
+		<GoogleCardLayout containerClassName={styles.sign_in__container} loading={loading}>
 			<CardContent className={styles.sign_in__content}>
 				<div className={styles.sign_in__content__header}>
 					<img
@@ -78,7 +78,7 @@ const SignIn = () => {
 					Next
 				</Button>
 			</CardActions>
-		</GoogleGlobalLayout>
+		</GoogleCardLayout>
 	);
 };
 

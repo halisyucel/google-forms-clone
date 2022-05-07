@@ -1,9 +1,12 @@
 import React, { ChangeEvent } from 'react';
 import { Button, CardActions, CardContent, Checkbox, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-import GoogleGlobalLayout from '../components/google-global-layout';
+import GoogleCardLayout from '../components/global/google-card-layout';
 import useSignUp from '../hooks/useSignUp';
 import styles from '../styles/pages/sign-up.module.scss';
+
+// todo buradaki formlar gerçek forma dönüştürülecek
+// todo validationlar joiden geçirilicek
 
 const SignUp = () => {
 	const {
@@ -22,7 +25,7 @@ const SignUp = () => {
 		usernameHelperText
 	} = useSignUp();
 	return (
-		<GoogleGlobalLayout containerClassName={styles.sign_up__container} loading={loading}>
+		<GoogleCardLayout containerClassName={styles.sign_up__container} loading={loading}>
 			<CardContent className={styles.sign_up__content}>
 				<div className={styles.sign_up__content__header}>
 					<img
@@ -137,7 +140,7 @@ const SignUp = () => {
 					Next
 				</Button>
 			</CardActions>
-		</GoogleGlobalLayout>
+		</GoogleCardLayout>
 	);
 };
 

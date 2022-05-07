@@ -1,7 +1,7 @@
 import React, { cloneElement } from 'react';
 import { ElevationScrollProps, WorkspaceTool } from './types';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import styles from '../styles/components/workspace-pop-up.module.scss';
+import styles from '../styles/components/home.workspace-pop-up.module.scss';
 
 export const tools: WorkspaceTool[] = [
 	{

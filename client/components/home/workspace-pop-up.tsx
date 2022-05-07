@@ -1,10 +1,10 @@
 import React from 'react';
-import { WorkspacePopUpProps } from '../lib/types';
-import { mapTools, tools } from '../lib/home';
+import { WorkspacePopUpProps } from '../../lib/types';
+import { mapTools, tools } from '../../lib/home';
 import { Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
-import styles from '../styles/components/workspace-pop-up.module.scss';
+import styles from '../../styles/components/home.workspace-pop-up.module.scss';
 
 const WorkspacePopUp = (props: WorkspacePopUpProps) => {
 	return (
