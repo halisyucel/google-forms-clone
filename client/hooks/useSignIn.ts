@@ -19,7 +19,8 @@ export default () => {
 	});
 	const usernameHelperText = useMemo(() => createHelperText(usernameHelperTextProps), [usernameHelperTextProps]);
 	useEffect(() => {
-		document.getElementById('email_or_phone_input')!.focus();
+		const emailOrPhoneInput = document.getElementById('email_or_phone_input') as HTMLElement;
+		emailOrPhoneInput.focus();
 	}, []);
 	const handleSubmit = useCallback(() => {
 		if (username.value.trim().length === 0) {

@@ -13,7 +13,9 @@ import JustClone from './pages/just-clone';
 import 'normalize.css';
 import './styles/globals.scss';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root') as HTMLElement;
+
+ReactDOM.createRoot(root).render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Routes>

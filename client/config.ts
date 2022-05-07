@@ -8,6 +8,6 @@ const config: Config = {
 	get API_URL() {
 		return this.MODE === 'development' ? 'http://localhost:3001/api' : '/api';
 	},
-}
+};
 
 export default config;
