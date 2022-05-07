@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 import Password from './pages/sign-in/password';
@@ -16,10 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Routes>
-				<Route path={'/'} element={<Dashboard />} />
+				<Route path={'/'} element={<Home />} />
 				<Route path={'/sign-in'} element={<SignIn />} />
 				<Route path={'/sign-in/password/:username'} element={<Password />} />
 				<Route path={'/sign-up'} element={<SignUp />} />
+				<Route path={'/dashboard'} element={<Dashboard />} />
 				<Route path={'/example'} element={<Example />} />
 				<Route path={'/just-clone'} element={<JustClone />} />
 				<Route path={'/error'} element={<Error />} />

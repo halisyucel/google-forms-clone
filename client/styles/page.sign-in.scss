@@ -60,11 +60,11 @@
     align-items: center;
     .sign_in__footer__button {
         text-transform: none;
-    }
-    .sign_in__footer__button:nth-child(1) {
-        margin-left: -8px;
-    }
-    .sign_in__footer__button:nth-child(2) {
-        background-color: var(--color-blue);
+        &:nth-child(1) {
+            margin-left: -8px;
+        }
+        &:nth-child(2) {
+            background-color: var(--color-blue);
+        }
     }
 }

@@ -72,6 +72,7 @@ const SignIn = () => {
 					variant={'contained'}
 					className={'sign_in__footer__button'}
 					onClick={handleSubmit}
+					disableElevation={true}
 				>
 					Next
 				</Button>

@@ -1,0 +1,100 @@
+.workspace_pop_up {
+    .workspace_pop_up__background {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 64px);
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .workspace_pop_up__paper {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 100;
+        display: flex;
+        .workspace_pop_up__paper__close_button {
+            height: 24px;
+            width: 24px;
+            color: var(--color-gray-primary);
+            position: absolute;
+            top: 25px;
+            right: 42px;
+            cursor: pointer;
+        }
+        .workspace_pop_up__paper__tools {
+            flex: 1;
+            padding: 60px 0 60px 110px;
+            display: flex;
+            .workspace_pop_up__paper__tools__column {
+                width: 276px;
+                margin-right: 64px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                .workspace_pop_up__paper__tools__column__tool {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin-bottom: 24px;
+                    border-radius: 8px;
+                    &:hover {
+                        background-color: #f6fafe;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    img {
+                        width: 24px;
+                        margin-right: 10px;
+                    }
+                    .workspace_pop_up__paper__tools__column__tool__content {
+                        padding: 2px 0;
+                        p {
+                            margin: 0;
+                            font-size: 14px;
+                            line-height: 20px;
+                            &:nth-child(1) {
+                                color: var(--color-gray-primary);
+                            }
+                            &:nth-child(2) {
+                                color: var(--color-gray-secondary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .workspace_pop_up__paper__brand {
+            width: 560px;
+            background: #fafafa;
+            padding: 60px 20px 50px 40px;
+            & > a {
+                display: inline-flex;
+                width: 351px;
+                img {
+                    height: 24px;
+                    margin-right: 10px;
+                }
+                .workspace_pop_up__paper__brand__content {
+                    p {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: var(--color-gray-primary);
+                        &:nth-child(1) {
+                            margin-top: 0;
+                            color: var(--color-black);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

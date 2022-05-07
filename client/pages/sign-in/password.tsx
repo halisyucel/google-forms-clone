@@ -70,6 +70,7 @@ const Password = () => {
 					variant={'contained'}
 					className={'password__footer__button'}
 					onClick={handleSubmit}
+					disableElevation={true}
 				>
 					Next
 				</Button>
