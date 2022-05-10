@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<svg width="48px" height="49px" viewBox="0 0 48 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Work-with-clean-response-data</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Work-with-clean-response-data" transform="translate(0.000000, 0.960000)">
+            <circle id="Oval" fill="#1A73E8" cx="24" cy="24" r="24"></circle>
+            <g id="auto_graph_gm_grey_24dp" transform="translate(10.000000, 10.000000)">
+                <rect id="Rectangle" x="0" y="0" width="28" height="28"></rect>
+                <path d="M16.4033333,12.4716667 L14,11.375 L16.4033333,10.2783333 L17.5,7.875 L18.5966667,10.2783333 L21,11.375 L18.5966667,12.4716667 L17.5,14.875 L16.4033333,12.4716667 Z M4.66666667,17.2083333 L5.76333333,14.805 L8.16666667,13.7083333 L5.76333333,12.6116667 L4.66666667,10.2083333 L3.57,12.6116667 L1.16666667,13.7083333 L3.57,14.805 L4.66666667,17.2083333 Z M9.91666667,11.375 L11.1883333,8.56333333 L14,7.29166667 L11.1883333,6.02 L9.91666667,3.20833333 L8.645,6.02 L5.83333333,7.29166667 L8.645,8.56333333 L9.91666667,11.375 Z M5.25,24.7916667 L12.25,17.78 L16.9166667,22.4466667 L26.8333333,11.2933333 L25.1883333,9.64833333 L16.9166667,18.9466667 L12.25,14.28 L3.5,23.0416667 L5.25,24.7916667 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
