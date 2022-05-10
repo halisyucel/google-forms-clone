@@ -1,0 +1,30 @@
+.page_break_section {
+    position: relative;
+    padding: 24px 0 80px 0;
+    .page_break_section__content {
+        width: 100%;
+        border-top: 1px solid #dadce0;
+        padding: 36px 0 0 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--color-gray-primary);
+        .page_break_section__content__text {
+            font-size: 16px;
+            font-family: var(--font-noto-sans);
+            font-weight: 500;
+        }
+        .page_break_section__content__svg {
+            transform: rotate(-90deg);
+        }
+    }
+    .page_break_section__background_image {
+        position: absolute;
+        top: 50px;
+        right: -112px;
+        width: 121px;
+        height: auto;
+    }
+}
