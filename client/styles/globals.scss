@@ -17,6 +17,7 @@ html, body {
     width: 100%;
 }
 a {
+    width: fit-content;
     color: var(--color-blue);
     font-family: var(--font-noto-sans);
     text-decoration: none;
