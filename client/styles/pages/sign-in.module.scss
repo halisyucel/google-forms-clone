@@ -39,6 +39,9 @@
         .sign_in__content__body__forgot_email {
             display: inline-block;
             margin: 9px 0 3px 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
         }
         .sign_in__content__body__information {
             margin-top: 32px;
@@ -48,6 +51,11 @@
             font-family: var(--font-noto-sans);
             font-weight: 400;
             opacity: 0.9;
+            a {
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 500;
+            }
         }
     }
 }

@@ -18,11 +18,17 @@ html, body {
 }
 a {
     color: var(--color-blue);
-    font-size: 14px;
-    line-height: 20px;
     font-family: var(--font-noto-sans);
-    font-weight: 500;
     text-decoration: none;
+    border-radius: 4px;
+}
+a:hover {
+    background-color: #f6fafe;
+}
+a:focus {
+    background-color: rgba(26,115,232,.12);
+    -webkit-box-shadow: 0 0 0 2px #1a73e8;
+    box-shadow: 0 0 0 2px #1a73e8;
 }
 .helper_text {
     margin-top: 4px;
