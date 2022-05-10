@@ -47,7 +47,9 @@
                 font-weight: 500 !important;
                 margin-left: 0;
                 .header__buttons__button__icon {
-                    margin-left: 6px;
+                    font-size: 14px;
+                    margin: -4px 0 0 6px;
+                    transform: rotate(-90deg);
                 }
             }
         }

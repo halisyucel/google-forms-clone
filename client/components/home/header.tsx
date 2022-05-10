@@ -2,7 +2,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import { AppBar, Button, Tab, Tabs } from '@mui/material';
 import { ElevationScroll } from '../../lib/home';
 import { Link, useNavigate } from 'react-router-dom';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import WorkspacePopUp from './workspace-pop-up';
 import styles from '../../styles/components/home.header.module.scss';
 
@@ -39,7 +39,7 @@ const Header = () => {
 						onClick={() => setToolsIsOpen(!toolsIsOpen)}
 					>
 						More Tools
-						<KeyboardArrowDownIcon className={styles.header__buttons__button__icon} />
+						<ArrowBackIosIcon className={styles.header__buttons__button__icon} />
 					</Button>
 					<Button
 						size={'large'}
