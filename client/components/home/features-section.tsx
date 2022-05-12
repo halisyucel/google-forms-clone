@@ -3,7 +3,7 @@ import styles from '../../styles/components/home.features-section.module.scss';
 
 const FeaturesSection = () => {
 	return (
-		<section className={styles.features_section}>
+		<section id={'features'} className={styles.features_section}>
 			<div className={styles.features_section__feature}>
 				<div className={styles.features_section__feature__image_wrapper}>
 					<img

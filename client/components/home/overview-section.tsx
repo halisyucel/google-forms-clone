@@ -24,7 +24,7 @@ const OverviewSection = () => {
 		asyncFunc().catch(console.error);
 	}, []);
 	return (
-		<section className={styles.overview}>
+		<section id={'overview'} className={styles.overview}>
 			<div className={styles.overview__content}>
 				<h2>Get insights quickly, with Google Forms</h2>
 				<p>Easily create and share online forms and surveys, and analyze responses in real-time.</p>

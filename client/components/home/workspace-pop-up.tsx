@@ -2,7 +2,6 @@ import React from 'react';
 import { WorkspacePopUpProps } from '../../lib/types';
 import { mapTools, tools } from '../../lib/home';
 import { Paper } from '@mui/material';
-import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from '../../styles/components/home.workspace-pop-up.module.scss';
 
@@ -36,25 +35,23 @@ const WorkspacePopUp = (props: WorkspacePopUpProps) => {
 					</div>
 				</div>
 				<div className={styles.workspace_pop_up__paper__brand}>
-					<Link to={'/dashboard'}>
-						<img src={'/google-brand.svg'} alt={'Google Workspace'} />
-						<div className={styles.workspace_pop_up__paper__brand__content}>
-							<p>Google Workspace</p>
-							<p>
-								An integrated suit of secure, cloud-native collaboration
-								and productivity apps powered by Google AI.
-							</p>
-							<p>
-								<a
-									href={'https://workspace.google.com/'}
-									target={'_blank'}
-									rel={'noopener noreferrer'}
-								>
-									Learn More
-								</a>
-							</p>
-						</div>
-					</Link>
+					<img src={'/google-brand.svg'} alt={'Google Workspace'} />
+					<div className={styles.workspace_pop_up__paper__brand__content}>
+						<p>Google Workspace</p>
+						<p>
+							An integrated suit of secure, cloud-native collaboration
+							and productivity apps powered by Google AI.
+						</p>
+						<p>
+							<a
+								href={'https://workspace.google.com/'}
+								target={'_blank'}
+								rel={'noopener noreferrer'}
+							>
+								Learn More
+							</a>
+						</p>
+					</div>
 				</div>
 			</Paper>
 		</div>

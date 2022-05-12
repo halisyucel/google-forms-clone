@@ -74,24 +74,24 @@
         }
         .workspace_pop_up__paper__brand {
             width: 560px;
+            box-sizing: border-box;
             background: #fafafa;
-            padding: 60px 20px 50px 40px;
-            & > a {
-                display: inline-flex;
-                width: 351px;
-                img {
-                    height: 24px;
-                    margin-right: 10px;
-                }
-                .workspace_pop_up__paper__brand__content {
-                    p {
-                        font-size: 14px;
-                        font-weight: 400;
-                        color: var(--color-gray-primary);
-                        &:nth-child(1) {
-                            margin-top: 0;
-                            color: var(--color-black);
-                        }
+            padding: 60px 120px 50px 40px;
+            display: flex;
+            img {
+                height: 24px;
+                margin-right: 10px;
+            }
+            .workspace_pop_up__paper__brand__content {
+                p {
+                    font-family: var(--font-noto-sans);
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: var(--color-gray-primary);
+                    &:nth-child(1) {
+                        margin-top: 0;
+                        color: var(--color-black);
+                        font-weight: 500;
                     }
                 }
             }

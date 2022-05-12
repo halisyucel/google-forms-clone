@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 const PricingSection = () => {
 	return (
-		<section className={styles.pricing_section}>
+		<section id={'pricing'} className={styles.pricing_section}>
 			<div className={styles.pricing_section__head}>
 				<h2>Find the plan that’s right for you</h2>
 				<h3>Google Forms is a part of Google Workspace</h3>
@@ -84,158 +84,162 @@ const PricingSection = () => {
 				</div>
 			</div>
 			<table>
-				<tr>
-					<th/>
-					<th>
-						<h4>For Personal (Free)</h4>
-						<div className={styles.pricing_section__table_head}>
-							<Link to={'/dashboard'}>
-								<Button
-									size={'large'}
-									variant={'outlined'}
+				<thead>
+					<tr>
+						<th/>
+						<th>
+							<h4>For Personal (Free)</h4>
+							<div className={styles.pricing_section__table_head}>
+								<Link to={'/dashboard'}>
+									<Button
+										size={'large'}
+										variant={'outlined'}
+									>
+										Go to Forms
+									</Button>
+								</Link>
+							</div>
+						</th>
+						<th>
+							<h4>Business Standard</h4>
+							<div className={styles.pricing_section__table_head}>
+								<span className={styles.pricing_section__table_head__pricing}>
+									<span>$12 USD</span>
+									<span>/user/month</span>
+								</span>
+								<Link to={'/dashboard'}>
+									<Button
+										size={'large'}
+										variant={'contained'}
+										disableElevation={true}
+										style={{ marginBottom: '6px' }}
+									>
+										Get started
+									</Button>
+								</Link>
+								<a
+									href={'https://workspace.google.com/intl/en/pricing.html'}
+									target={'_blank'}
+									rel={'noopener noreferrer'}
 								>
-									Go to Forms
-								</Button>
-							</Link>
-						</div>
-					</th>
-					<th>
-						<h4>Business Standard</h4>
-						<div className={styles.pricing_section__table_head}>
-							<span className={styles.pricing_section__table_head__pricing}>
-								<span>$12 USD</span>
-								<span>/user/month</span>
-							</span>
-							<Link to={'/dashboard'}>
-								<Button
-									size={'large'}
-									variant={'contained'}
-									disableElevation={true}
-									style={{ marginBottom: '6px' }}
-								>
-									Get started
-								</Button>
-							</Link>
-							<a
-								href={'https://workspace.google.com/intl/en/pricing.html'}
-								target={'_blank'}
-								rel={'noopener noreferrer'}
-							>
-								See more plans
-							</a>
-						</div>
-					</th>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}>
-								<img src={'/table-docs.svg'} alt={'Docs Icon'}/>
-							</span>
-							<b>Docs, Sheets, Slides, Forms</b>&nbsp;content creation
-						</div>
-					</td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}>
-								<img src={'/table-drive.svg'} alt={'Drive Icon'}/>
-							</span>
-							<b>Drive</b>&nbsp;Secure cloud storage
-						</div>
-					</td>
-					<td><b>15 GB per user</b></td>
-					<td><b>2 TB per user</b></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}/>
-							Shared drives for your team
-						</div>
-					</td>
-					<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}>
-								<img src={'/table-gmail.svg'} alt={'Gmail Icon'}/>
-							</span>
-							<b>Gmail</b>&nbsp;Secure email
-						</div>
-					</td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}/>
-							Custom business email
-						</div>
-					</td>
-					<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}>
-								<img src={'/table-meet.svg'} alt={'Meet Icon'}/>
-							</span>
-							<b>Meet</b>&nbsp;Video and voice conferencing
-						</div>
-					</td>
-					<td><b>100 participants</b></td>
-					<td><b>150 participants</b></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}/>
-							Meeting recordings saved to Drive
-						</div>
-					</td>
-					<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}>
-								<img src={'/table-admin.svg'} alt={'Admin Icon'}/>
-							</span>
-							<b>Admin</b>&nbsp;Centralized administration
-						</div>
-					</td>
-					<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}/>
-							Group-based security policy controls
-						</div>
-					</td>
-					<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
-					<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
-				</tr>
-				<tr>
-					<td>
-						<div className={styles.pricing_section__table_cell}>
-							<span className={styles.pricing_section__table_cell__image}/>
-							Customer support
-						</div>
-					</td>
-					<td><b>Self-service online and community forums</b></td>
-					<td><b>24/7 online support and community forums</b></td>
-				</tr>
+									See more plans
+								</a>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}>
+									<img src={'/table-docs.svg'} alt={'Docs Icon'}/>
+								</span>
+								<b>Docs, Sheets, Slides, Forms</b>&nbsp;content creation
+							</div>
+						</td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}>
+									<img src={'/table-drive.svg'} alt={'Drive Icon'}/>
+								</span>
+								<b>Drive</b>&nbsp;Secure cloud storage
+							</div>
+						</td>
+						<td><b>15 GB per user</b></td>
+						<td><b>2 TB per user</b></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}/>
+								Shared drives for your team
+							</div>
+						</td>
+						<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}>
+									<img src={'/table-gmail.svg'} alt={'Gmail Icon'}/>
+								</span>
+								<b>Gmail</b>&nbsp;Secure email
+							</div>
+						</td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}/>
+								Custom business email
+							</div>
+						</td>
+						<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}>
+									<img src={'/table-meet.svg'} alt={'Meet Icon'}/>
+								</span>
+								<b>Meet</b>&nbsp;Video and voice conferencing
+							</div>
+						</td>
+						<td><b>100 participants</b></td>
+						<td><b>150 participants</b></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}/>
+								Meeting recordings saved to Drive
+							</div>
+						</td>
+						<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}>
+									<img src={'/table-admin.svg'} alt={'Admin Icon'}/>
+								</span>
+								<b>Admin</b>&nbsp;Centralized administration
+							</div>
+						</td>
+						<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}/>
+								Group-based security policy controls
+							</div>
+						</td>
+						<td><RemoveIcon className={styles.pricing_section__table_icon__remove}/></td>
+						<td><DoneIcon className={styles.pricing_section__table_icon__done}/></td>
+					</tr>
+					<tr>
+						<td>
+							<div className={styles.pricing_section__table_cell}>
+								<span className={styles.pricing_section__table_cell__image}/>
+								Customer support
+							</div>
+						</td>
+						<td><b>Self-service online and community forums</b></td>
+						<td><b>24/7 online support and community forums</b></td>
+					</tr>
+				</tbody>
 			</table>
 		</section>
 	);

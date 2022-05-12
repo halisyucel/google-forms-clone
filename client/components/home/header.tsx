@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState, useEffect } from 'react';
 import { AppBar, Button, Tab, Tabs } from '@mui/material';
 import { ElevationScroll } from '../../lib/home';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,6 +10,25 @@ const Header = () => {
 	const navigate = useNavigate();
 	const [tab, setTab] = useState<number>(0);
 	const [toolsIsOpen, setToolsIsOpen] = useState<boolean>(false);
+	useEffect(() => {
+		if (window.location.hash !== '') {
+			const targetElement = document.querySelector(window.location.hash) as HTMLElement;
+			targetElement.scrollIntoView();
+			switch (window.location.hash) {
+				case '#overview':
+					setTab(0);
+					break;
+				case '#features':
+					setTab(1);
+					break;
+				case '#security':
+					setTab(2);
+					break;
+				case '#pricing':
+					setTab(3);
+			}
+		}
+	}, []);
 	return (
 		<ElevationScroll>
 			<AppBar className={styles.header}>
@@ -26,10 +45,26 @@ const Header = () => {
 					onChange={(_event: SyntheticEvent, value: number) => setTab(value)}
 					className={styles.header__tabs}
 				>
-					<Tab label={'Overview'} className={styles.header__tabs__tab} />
-					<Tab label={'Features'} className={styles.header__tabs__tab} />
-					<Tab label={'Security'} className={styles.header__tabs__tab} />
-					<Tab label={'Pricing'} className={styles.header__tabs__tab} />
+					<Tab
+						className={styles.header__tabs__tab}
+						label={'Overview'}
+						href={'#overview'}
+					/>
+					<Tab
+						className={styles.header__tabs__tab}
+						label={'Features'}
+						href={'#features'}
+					/>
+					<Tab
+						className={styles.header__tabs__tab}
+						label={'Security'}
+						href={'#security'}
+					/>
+					<Tab
+						className={styles.header__tabs__tab}
+						label={'Pricing'}
+						href={'#pricing'}
+					/>
 				</Tabs>
 				<div style={{ flex: '1' }} />
 				<div className={styles.header__buttons}>

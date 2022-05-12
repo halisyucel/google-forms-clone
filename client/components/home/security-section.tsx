@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from '../../styles/components/home.security-section.module.scss';
 
-// todo alt text'leri düzelt diğerlerinde de
-
 const SecuritySection = () => {
 	return (
-		<section className={styles.security_section}>
+		<section id={'security'} className={styles.security_section}>
 			<h2 className={styles.security_section__title}>
 				Security, compliance, and privacy
 			</h2>

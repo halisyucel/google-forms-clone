@@ -31,6 +31,13 @@
             &[aria-selected="true"] {
                 color: var(--color-black);
             }
+            &:hover {
+                background-color: transparent;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
         }
     }
     .header__buttons {

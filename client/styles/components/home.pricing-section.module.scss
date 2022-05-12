@@ -86,8 +86,13 @@
             th {
                 padding: 24px 24px 36px 24px;
                 text-align: center;
-                &:first-child {
+                &:nth-child(1) {
                     border-top: none;
+                }
+                &:nth-child(2) {
+                    .pricing_section__table_head {
+                        padding-top: 32px;
+                    }
                 }
                 h4 {
                     margin: 0;
@@ -106,9 +111,6 @@
                     justify-content: space-around;
                     align-items: center;
                     box-sizing: border-box;
-                    &:first-child {
-                        padding-top: 32px;
-                    }
                     .pricing_section__table_head__pricing {
                         span {
                             font-family: var(--font-noto-sans);
