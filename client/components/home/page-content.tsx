@@ -5,6 +5,7 @@ import FeaturesSection from './features-section';
 import SecuritySection from './security-section';
 import PricingSection from './pricing-section';
 import TemplatesSection from './templates-section';
+import ReadySection from './ready-section';
 import styles from '../../styles/components/home.page-content.module.scss';
 
 const PageContent = () => {
@@ -16,6 +17,7 @@ const PageContent = () => {
 			<SecuritySection />
 			<PricingSection />
 			<TemplatesSection />
+			<ReadySection />
 		</div>
 	);
 };
