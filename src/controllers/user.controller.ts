@@ -1,17 +1,7 @@
 import { User, UserCheckUserSchema,UserSignInSchema, UserSignUpSchema } from '../models/user.model';
 import { Request, Response } from 'express';
-import { createJwtToken } from '../utils/user.util';
+import { createJwtToken, verifyJwtToken } from '../utils/user.util';
 import bcrypt from 'bcrypt';
-
-export const checkUser = async (req: Request, res: Response) => {
-	const { error, value } = UserCheckUserSchema.validate(req.body);
-	if (error)
-		return res.status(400).json({ message: error.details[0].message });
-	const user = await User.findOne({ where: { username: value.username } });
-	if (user === null)
-		return res.status(404).json({ message: 'User not found' });
-	return res.status(200).json({ status: true });
-};
 
 export const signIn = async (req: Request, res: Response) => {
 	const { error, value } = UserSignInSchema.validate(req.body);
@@ -22,8 +12,8 @@ export const signIn = async (req: Request, res: Response) => {
 		return res.status(404).json({ message: 'User not found' });
 	if (!bcrypt.compareSync(value.password, user.getDataValue('passwordHash')))
 		return res.status(401).json({ message: 'Invalid password' });
-	const token = createJwtToken(user);
-	return res.json({ token });
+	const credentials = createJwtToken(user);
+	return res.json({ ...credentials });
 };
 
 export const signUp = async (req: Request, res: Response) => {
@@ -39,8 +29,26 @@ export const signUp = async (req: Request, res: Response) => {
 			username: value.username,
 			passwordHash: passwordHash,
 		});
-		const token = createJwtToken(user);
-		return res.json({ token });
+		const credentials = createJwtToken(user);
+		return res.json({ ...credentials });
 	}
 	return res.status(409).json({ message: 'Username already exists' });
+};
+
+export const checkUser = async (req: Request, res: Response) => {
+	const { error, value } = UserCheckUserSchema.validate(req.body);
+	if (error)
+		return res.status(400).json({ message: error.details[0].message });
+	const user = await User.findOne({ where: { username: value.username } });
+	if (user === null)
+		return res.status(404).json({ message: 'User not found' });
+	return res.status(200).json({ status: true });
+};
+
+export const checkToken = async (req: Request, res: Response) => {
+	const token = req.headers.authorization?.split(' ')[1] as string;
+	const { error, payload } = verifyJwtToken(token);
+	if (error)
+		return res.status(401).json({ message: error });
+	return res.status(200).json({ token, ...payload });
 };
