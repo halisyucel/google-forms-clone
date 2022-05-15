@@ -37,6 +37,32 @@ type GoogleCardLayoutProps = {
 	containerClassName?: string,
 };
 
+interface CredentialsState {
+	token: string,
+	id: number,
+	firstName: string,
+	lastName: string,
+	username: string,
+}
+
+interface SetCredentialsProps {
+	token?: string,
+	id?: number,
+	firstName?: string,
+	lastName?: string,
+	username?: string,
+}
+
+interface UseAuthenticationProps {
+	next?: string,
+	fallback?: string,
+}
+
+type LoadingLayoutProps = {
+	children: React.ReactNode,
+	loading: boolean,
+};
+
 export type {
 	HelperText,
 	FormElement,
@@ -45,4 +71,8 @@ export type {
 	WorkspaceTool,
 	WorkspacePopUpProps,
 	GoogleCardLayoutProps,
+	CredentialsState,
+	UseAuthenticationProps,
+	LoadingLayoutProps,
+	SetCredentialsProps
 };

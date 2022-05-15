@@ -5,7 +5,7 @@ const JustClone = () => {
 	return (
 		<div>
 			<Helmet>
-				<title>Google Forms Clone: It's Just a Clone</title>
+				<title>Google Forms Clone: It&apos;s Just a Clone</title>
 				<meta name={'robots'} content={'noindex, nofollow'} />
 			</Helmet>
 			just clone

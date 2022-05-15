@@ -1,9 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FormElement, HelperText } from '../lib/types';
 import { createHelperText } from '../lib/helper';
+import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
-import lookie from 'lookie';
 import Config from '../config';
 
 export default () => {
@@ -42,7 +41,6 @@ export default () => {
 						setLoading(false);
 						setUsername({ value: username.value, error: false });
 						setUsernameHelperTextProps({ type: 'none' });
-						lookie.set('token', response.data.token, '8h');
 						navigate(`/sign-in/password/${username.value.trim().split('@gmail.com')[0]}`);
 					}
 				})

@@ -1,12 +1,18 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FormElement, HelperText, PasswordParams } from '../lib/types';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createHelperText } from '../lib/helper';
+import { setCredentials } from '../redux/features/credentialsSlice';
+import { RootState } from '../redux/store';
 import axios, { AxiosResponse } from 'axios';
 import Config from '../config';
+import lookie from 'lookie';
 
 export default () => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const credentials = useSelector((state: RootState) => state.credentials);
 	const params: PasswordParams = useParams();
 	const [loading, setLoading] = useState<boolean>(false);
 	const [password, setPassword] = useState<FormElement>({
@@ -38,11 +44,13 @@ export default () => {
 					password: password.value,
 				},
 			})
-				.then((response: AxiosResponse) => {
-					if (response.status === 200) {
+				.then((res: AxiosResponse) => {
+					if (res.status === 200) {
 						setLoading(false);
 						setPassword({ value: password.value, error: false });
 						setPasswordHelperTextProps({ type: 'none' });
+						lookie.set('GOOGLE_FORMS_CLONE_CREDENTIALS', { ...res.data });
+						dispatch(setCredentials({ ...res.data }));
 						navigate('/dashboard');
 					}
 				})
@@ -55,7 +63,9 @@ export default () => {
 	}, [
 		password.value,
 		params.username,
-		navigate
+		navigate,
+		credentials,
+		dispatch,
 	]);
 	return {
 		params,

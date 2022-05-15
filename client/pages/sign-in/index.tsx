@@ -3,10 +3,12 @@ import { Button, CardActions, CardContent, TextField } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GoogleCardLayout from '../../components/global/google-card-layout';
+import useAuthentication from '../../hooks/useAuthentication';
 import useSignIn from '../../hooks/useSignIn';
 import styles from '../../styles/pages/sign-in.module.scss';
 
 const SignIn = () => {
+	const authentication = useAuthentication({ next: '/dashboard' });
 	const {
 		loading,
 		username,
@@ -15,7 +17,7 @@ const SignIn = () => {
 		setUsername,
 	} = useSignIn();
 	return (
-		<GoogleCardLayout containerClassName={styles.sign_in__container} loading={loading}>
+		<GoogleCardLayout containerClassName={styles.sign_in__container} loading={(loading || authentication.loading)}>
 			<Helmet>
 				<title>Google Forms Clone: Sign-in</title>
 			</Helmet>

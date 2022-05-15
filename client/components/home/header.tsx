@@ -15,17 +15,17 @@ const Header = () => {
 			const targetElement = document.querySelector(window.location.hash) as HTMLElement;
 			targetElement.scrollIntoView();
 			switch (window.location.hash) {
-				case '#overview':
-					setTab(0);
-					break;
-				case '#features':
-					setTab(1);
-					break;
-				case '#security':
-					setTab(2);
-					break;
-				case '#pricing':
-					setTab(3);
+			case '#overview':
+				setTab(0);
+				break;
+			case '#features':
+				setTab(1);
+				break;
+			case '#security':
+				setTab(2);
+				break;
+			case '#pricing':
+				setTab(3);
 			}
 		}
 	}, []);

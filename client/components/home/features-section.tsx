@@ -67,7 +67,7 @@ const FeaturesSection = () => {
 				<div className={styles.features_section__advantages__advantage}>
 					<img src={'/features-advantage-3.svg'} alt={'Google Forms Clone'} />
 					<h3>Share forms via email, link, or website</h3>
-					<p>It's easy to share forms with specific people or with a broad audience by embedding forms on your website or sharing the links on social media.</p>
+					<p>It&apos;s easy to share forms with specific people or with a broad audience by embedding forms on your website or sharing the links on social media.</p>
 				</div>
 			</div>
 			<img

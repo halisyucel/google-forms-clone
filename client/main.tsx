@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import Home from './pages/home';
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
@@ -16,7 +18,7 @@ import './styles/globals.scss';
 const root = document.getElementById('root') as HTMLElement;
 
 ReactDOM.createRoot(root).render(
-	<React.StrictMode>
+	<Provider store={store}>
 		<BrowserRouter>
 			<Routes>
 				<Route path={'/'} element={<Home />} />
@@ -30,5 +32,5 @@ ReactDOM.createRoot(root).render(
 				<Route path={'*'} element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
-	</React.StrictMode>
+	</Provider>
 );
