@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
-import { HelperText, FormElement } from '../lib/types';
-import { createHelperText } from '../lib/helper';
+import { HelperText, FormElement } from '../utils/types';
+import { createHelperText } from '../utils/helper';
 import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import Config from '../config';

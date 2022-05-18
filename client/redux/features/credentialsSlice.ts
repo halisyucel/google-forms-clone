@@ -1,5 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CredentialsState, SetCredentialsProps } from '../../lib/types';
+
+export interface CredentialsState {
+	token: string,
+	id: number,
+	firstName: string,
+	lastName: string,
+	username: string,
+}
+
+export interface SetCredentialsProps {
+	token?: string,
+	id?: number,
+	firstName?: string,
+	lastName?: string,
+	username?: string,
+}
 
 const initialState: CredentialsState = {
 	token: '',

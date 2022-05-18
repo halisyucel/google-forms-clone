@@ -1,9 +1,13 @@
 import React from 'react';
-import { WorkspacePopUpProps } from '../../lib/types';
-import { mapTools, tools } from '../../lib/home';
+import { mapTools, tools } from '../../utils/home';
 import { Paper } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from '../../styles/components/home.workspace-pop-up.module.scss';
+
+export interface WorkspacePopUpProps {
+	onClose: (value: boolean) => void;
+	isOpen: boolean;
+}
 
 const WorkspacePopUp = (props: WorkspacePopUpProps) => {
 	return (

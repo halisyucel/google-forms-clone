@@ -1,5 +1,11 @@
-import React from 'react';
-import { LoadingLayoutProps } from '../../lib/types';
+import React, { ReactNode } from 'react';
+
+// todo burası geliştirilecek
+
+export type LoadingLayoutProps = {
+	children: ReactNode,
+	loading: boolean,
+}
 
 const LoadingLayout = (props: LoadingLayoutProps) => {
 	return props.loading ? (

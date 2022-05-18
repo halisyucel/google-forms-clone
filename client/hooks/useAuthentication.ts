@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
-import { setCredentials } from '../redux/features/credentialsSlice';
-import { CredentialsState, UseAuthenticationProps } from '../lib/types';
+import { setCredentials, CredentialsState } from '../redux/features/credentialsSlice';
 import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import Config from '../config';
 import lookie from 'lookie';
+
+export interface UseAuthenticationProps {
+	next?: string,
+	fallback?: string,
+}
 
 export default (props: UseAuthenticationProps) => {
 	const navigate = useNavigate();

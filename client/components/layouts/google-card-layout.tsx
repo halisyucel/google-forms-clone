@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Card, LinearProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { GoogleCardLayoutProps } from '../../lib/types';
 import styles from '../../styles/components/google-global-layout.module.scss';
+
+export type GoogleCardLayoutProps = {
+	children: ReactNode;
+	loading: boolean;
+	containerClassName?: string;
+};
 
 const GoogleCardLayout = (props: GoogleCardLayoutProps) => {
 	return (

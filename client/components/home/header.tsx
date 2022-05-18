@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState, useEffect } from 'react';
 import { AppBar, Button, Tab, Tabs } from '@mui/material';
-import { ElevationScroll } from '../../lib/home';
+import { ElevationScroll } from '../../utils/home';
 import { Link, useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import WorkspacePopUp from './workspace-pop-up';

@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { Avatar, Button, CardActions, CardContent, Checkbox, Chip, TextField } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import GoogleCardLayout from '../../components/global/google-card-layout';
+import GoogleCardLayout from '../../components/layouts/google-card-layout';
 import usePassword from '../../hooks/usePassword';
 import styles from '../../styles/pages/sign-in.password.module.scss';
 

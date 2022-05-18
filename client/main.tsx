@@ -3,15 +3,16 @@ import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import Home from './pages/home';
-import SignIn from './pages/sign-in';
-import SignUp from './pages/sign-up';
-import Password from './pages/sign-in/password';
+import JustClone from './pages/just-clone';
 import Dashboard from './pages/dashboard';
-import Error from './pages/error';
+import Password from './pages/sign-in/password';
 import NotFound from './pages/not-found';
 import Example from './pages/example';
-import JustClone from './pages/just-clone';
+import SignIn from './pages/sign-in';
+import SignUp from './pages/sign-up';
+import Search from './pages/dashboard/search';
+import Error from './pages/error';
+import Home from './pages/home';
 import 'normalize.css';
 import './styles/globals.scss';
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(root).render(
 				<Route path={'/sign-in/password/:username'} element={<Password />} />
 				<Route path={'/sign-up'} element={<SignUp />} />
 				<Route path={'/dashboard'} element={<Dashboard />} />
+				<Route path={'/dashboard/search/:query'} element={<Search />} />
 				<Route path={'/example'} element={<Example />} />
 				<Route path={'/just-clone'} element={<JustClone />} />
 				<Route path={'/error'} element={<Error />} />

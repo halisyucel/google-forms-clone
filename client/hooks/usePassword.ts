@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { FormElement, HelperText, PasswordParams } from '../lib/types';
+import { FormElement, HelperText } from '../utils/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createHelperText } from '../lib/helper';
+import { createHelperText } from '../utils/helper';
 import { setCredentials } from '../redux/features/credentialsSlice';
 import { RootState } from '../redux/store';
 import axios, { AxiosResponse } from 'axios';
 import Config from '../config';
 import lookie from 'lookie';
+
+export interface PasswordParams {
+	username?: string,
+}
 
 export default () => {
 	const navigate = useNavigate();
