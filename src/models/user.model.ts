@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../services/db.service';
+import connection from '../services/db.service';
 import Joi from 'joi';
 
 export const UserSignUpSchema = Joi.object({
@@ -18,7 +18,7 @@ export const UserCheckUserSchema = Joi.object({
 	username: Joi.string().required(),
 });
 
-export const User = sequelize.define('User', {
+export const User = connection.define('User', {
 	firstName: {
 		type: DataTypes.STRING,
 		allowNull: false,
@@ -53,5 +53,3 @@ export const User = sequelize.define('User', {
 	timestamps: true,
 	createdAt: true,
 });
-
-(async () => await User.sync())();
