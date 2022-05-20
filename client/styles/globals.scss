@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --font-noto-sans: 'Noto Sans', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
     --color-white: rgb(255, 255, 255);
     --color-black: rgb(32, 33, 36);
     --color-blue: rgb(26, 115, 232);
@@ -9,6 +10,7 @@
     --color-gray-tertiary: rgb(248, 249, 250);
     --color-gray-quaternary:  rgb(241, 243, 244);
     --color-red: rgb(211, 47, 47);
+    --color-purple: rgb(114, 72, 185);
     --color-border: #dadce0;
 }
 html{

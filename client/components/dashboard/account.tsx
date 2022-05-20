@@ -8,6 +8,8 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import styles from '../../styles/components/dashboard.account.module.scss';
 import lookie from 'lookie';
 
+// todo - add remove account functionality
+
 const Account = (props: PopupProps) => {
 	const navigate = useNavigate();
 	const credentials = useSelector((state: RootState) => state.credentials);

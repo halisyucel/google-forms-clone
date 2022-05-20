@@ -4,6 +4,7 @@ import useAuthentication from '../../hooks/useAuthentication';
 import LoadingLayout from '../../components/layouts/loading-layout';
 import Header from '../../components/dashboard/header';
 import Templates from '../../components/dashboard/templates';
+import Settings from '../../components/dashboard/settings';
 
 const Dashboard = () => {
 	const { loading } = useAuthentication({ fallback: '/sign-in' });
@@ -16,6 +17,7 @@ const Dashboard = () => {
 			</Helmet>
 			<Header />
 			<Templates />
+			<Settings />
 		</LoadingLayout>
 	);
 };

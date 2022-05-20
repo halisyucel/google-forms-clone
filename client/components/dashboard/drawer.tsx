@@ -1,12 +1,17 @@
 import React from 'react';
 import { Divider, Drawer as MUIDrawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useDispatch } from 'react-redux';
 import { PopupProps } from '../../utils/types';
+import { setSetting } from '../../redux/features/settingsSlice';
 import { Link } from 'react-router-dom';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import styles from '../../styles/components/dashboard.drawer.module.scss';
 
+// todo: add a link to the help page
+
 const Drawer = (props: PopupProps) => {
+	const dispatch = useDispatch();
 	return (
 		<MUIDrawer
 			anchor={'left'}
@@ -110,7 +115,15 @@ const Drawer = (props: PopupProps) => {
 					disablePadding={true}
 					dense={true}
 				>
-					<ListItemButton>
+					<ListItemButton
+						onClick={() => {
+							props.onClose && props.onClose();
+							dispatch(setSetting({
+								key: 'isOpenSettingsDialog',
+								value: true
+							}));
+						}}
+					>
 						<ListItemIcon className={styles.drawer__list__item_icon}>
 							<SettingsOutlinedIcon />
 						</ListItemIcon>
