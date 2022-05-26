@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '../../styles/components/dashboard.templates.module.scss';
 import { IconButton } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import styles from '../../styles/components/dashboard.templates.module.scss';
 
 const Templates = () => {
 	const settings = useSelector((state: RootState) => state.settings);

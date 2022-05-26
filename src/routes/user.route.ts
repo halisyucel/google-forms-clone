@@ -11,6 +11,6 @@ router.post('/sign-up', UserController.signUp);
 
 router.post('/authenticate', UserController.checkToken);
 
-// TODO - hesabı silme özelliği ekleyelim
+router.delete('/', UserController.deleteUser);
 
 export default router;

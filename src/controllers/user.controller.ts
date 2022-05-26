@@ -1,7 +1,11 @@
 import { User, UserCheckUserSchema,UserSignInSchema, UserSignUpSchema } from '../models/user.model';
-import { Request, Response } from 'express';
+import { Upload } from '../models/assets.model';
 import { createJwtToken, verifyJwtToken } from '../utils/user.util';
+import { extractTokenFromHeader } from '../utils/helper.util';
+import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
+import fs from 'fs';
+import path from 'path';
 
 export const signIn = async (req: Request, res: Response) => {
 	const { error, value } = UserSignInSchema.validate(req.body);
@@ -46,9 +50,25 @@ export const checkUser = async (req: Request, res: Response) => {
 };
 
 export const checkToken = async (req: Request, res: Response) => {
-	const token = req.headers.authorization?.split(' ')[1] as string;
+	const token = extractTokenFromHeader(req);
 	const { error, payload } = verifyJwtToken(token);
 	if (error)
 		return res.status(401).json({ message: error });
 	return res.status(200).json({ token, ...payload });
+};
+
+// todo yeni bir şeyler ürettikçe burada silmeli
+export const deleteUser = async (req: Request, res: Response) => {
+	const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
+	if (error)
+		return res.status(401).json({ message: error });
+	const uploads = await Upload.findAll({ where: { userId: payload?.id } });
+	// delete all upload files
+	for (const upload of uploads)
+		fs.unlinkSync(path.join(__dirname, '../../../assets/uploads', upload.getDataValue('name')));
+	// delete all upload records
+	await Upload.destroy({ where: { userId: payload?.id }});
+	// delete user
+	await User.destroy({ where: {id: payload?.id }});
+	return res.status(200).json({ status: true });
 };

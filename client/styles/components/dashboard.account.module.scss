@@ -72,13 +72,13 @@
             }
         }
     }
-    .account__sign_out {
+    .account__button_area {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px 0;
-        .account__sign_out__button {
+        .account__button_area__button {
             padding: 8px 24px;
             border: 1px solid var(--color-border);
             border-radius: 4px;
@@ -111,6 +111,28 @@
             cursor: pointer;
             text-decoration: none;
             white-space: nowrap;
+        }
+    }
+}
+.dialog {
+    .dialog_content {
+        margin-top: 20px;
+        font-family: var(--font-noto-sans);
+        color: var(--color-black);
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+    .dialog__actions {
+        margin: 0 20px 20px 20px;
+        .dialog__actions__button {
+            text-transform: none;
+            &:nth-child(1) {
+                margin-right: 8px;
+            }
+            &:nth-child(2) {
+                background-color: var(--color-blue);
+            }
         }
     }
 }
