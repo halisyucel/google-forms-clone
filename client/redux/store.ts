@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import credentialsReducer from './features/credentialsSlice';
 import settingsReducer from './features/settingsSlice';
+import snackbarReducer from './features/snackbarSlice';
 
 export const store = configureStore({
 	reducer: {
 		credentials: credentialsReducer,
-		settings: settingsReducer
+		settings: settingsReducer,
+		snackbar: snackbarReducer,
 	},
 });
 

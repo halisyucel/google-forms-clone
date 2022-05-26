@@ -9,9 +9,10 @@ import {
 	Divider,
 	Paper,
 } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { PopupProps } from '../../utils/types';
+import { throwAlert } from '../../redux/features/snackbarSlice';
 import { RootState } from '../../redux/store';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import Config from '../../config';
@@ -21,6 +22,7 @@ import axios from 'axios';
 
 const Account = (props: PopupProps) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const credentials = useSelector((state: RootState) => state.credentials);
 	const [openDialog, setOpenDialog] = useState<boolean>(false);
 	const [openProgress, setOpenProgress] = useState<boolean>(false);
@@ -44,11 +46,15 @@ const Account = (props: PopupProps) => {
 			})
 			.catch(err => {
 				setOpenProgress(false);
-				console.error(err); // todo - add snackbar
+				dispatch(throwAlert({
+					message: 'Oops! Something went wrong.',
+					severity: 'error',
+				}));
 			});
 	}, [
 		logout,
-		credentials.token
+		credentials.token,
+		dispatch
 	]);
 	return (
 		<>

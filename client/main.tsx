@@ -15,6 +15,7 @@ import Error from './pages/error';
 import Home from './pages/home';
 import 'normalize.css';
 import './styles/globals.scss';
+import Snackbar from './components/global/snackbar';
 
 const root = document.getElementById('root') as HTMLElement;
 
@@ -34,5 +35,6 @@ ReactDOM.createRoot(root).render(
 				<Route path={'*'} element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
+		<Snackbar />
 	</Provider>
 );
