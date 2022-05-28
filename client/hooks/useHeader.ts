@@ -28,8 +28,8 @@ export default () => {
         [appsOpen, accountOpen],
     );
     const searchSubmit = useCallback(() => {
-        if (searchValue.trim() !== '')
-            navigate(`/dashboard/search/${searchValue}`);
+        if (!searchValue.trim())
+            return navigate(`/dashboard/search/${searchValue}`);
     }, [searchValue]);
     return {
         credentials,

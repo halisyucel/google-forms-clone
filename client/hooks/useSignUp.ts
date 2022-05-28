@@ -83,27 +83,29 @@ export default function useSignUp() {
     );
     const formValidation = useCallback(() => {
         let result = true;
-        (() => {
-            if (firstName.value.trim().length < 1) {
-                setFormInput('firstName', 'error', true);
-                result = false;
-            } else setFormInput('firstName', 'error', false);
-        })();
-        (() => {
-            if (lastName.value.trim().length < 1) {
-                setFormInput('lastName', 'error', true);
-                result = false;
-            } else setFormInput('lastName', 'error', false);
-        })();
-        (() => {
-            if (username.value.trim().length < 1) {
-                setFormInput('username', 'error', true);
-                setUsernameHelperTextProps({
-                    type: 'error',
-                    message: 'Choose a Gmail address',
-                });
-                result = false;
-            } else if (!new RegExp(/^[a-zA-Z0-9.]+$/).test(username.value)) {
+        const usernameRegex = new RegExp(/^[a-zA-Z0-9.]+$/);
+        const passwordRegex = new RegExp(
+            /^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/,
+        );
+        // First name
+        if (firstName.value.trim()) {
+            setFormInput('firstName', 'error', false);
+        }
+        if (!firstName.value.trim()) {
+            setFormInput('firstName', 'error', true);
+            result = false;
+        }
+        // Last name
+        if (lastName.value.trim()) {
+            setFormInput('lastName', 'error', false);
+        }
+        if (!lastName.value.trim()) {
+            setFormInput('lastName', 'error', true);
+            result = false;
+        }
+        // Username
+        if (username.value.trim()) {
+            if (!usernameRegex.test(username.value)) {
                 setFormInput('username', 'error', true);
                 setUsernameHelperTextProps({
                     type: 'error',
@@ -118,20 +120,18 @@ export default function useSignUp() {
                     message: 'You can use letters, numbers & periods',
                 });
             }
-        })();
-        (() => {
-            if (password.value.trim().length < 8) {
-                setFormInput('password', 'error', true);
-                setPasswordsHelperTextProps({
-                    type: 'error',
-                    message: 'Use 8 characters or more for your password',
-                });
-                result = false;
-            } else if (
-                !new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/).test(
-                    password.value,
-                )
-            ) {
+        }
+        if (!username.value.trim()) {
+            setFormInput('username', 'error', true);
+            setUsernameHelperTextProps({
+                type: 'error',
+                message: 'Choose a Gmail address',
+            });
+            result = false;
+        }
+        // Password
+        if (password.value.trim().length >= 8) {
+            if (!passwordRegex.test(password.value)) {
                 setFormInput('password', 'error', true);
                 setPasswordsHelperTextProps({
                     type: 'error',
@@ -139,53 +139,56 @@ export default function useSignUp() {
                         'Only use letters, numbers, and common punctuation characters',
                 });
                 result = false;
-            } else setFormInput('password', 'error', false);
-        })();
-        (() => {
-            if (
-                passwordConfirm.value !== password.value &&
-                new RegExp(/^[a-zA-Z0-9.+\-*/!'^%&()[\]{}?_|#$,;:]+$/).test(
-                    password.value,
-                )
-            ) {
-                setFormInput('passwordConfirm', 'error', true);
-                setPasswordsHelperTextProps({
-                    type: 'error',
-                    message: "Those passwords didn't match. Try again.",
-                });
-                result = false;
-            } else setFormInput('passwordConfirm', 'error', false);
-        })();
-        (() => {
-            if (
-                firstName.value.trim().length < 1 &&
-                lastName.value.trim().length < 1
-            ) {
-                setNamesHelperTextProps({
-                    type: 'error',
-                    message: 'Enter first and last names',
-                });
-                result = false;
-            } else if (
-                firstName.value.trim().length < 1 &&
-                lastName.value.trim().length > 0
-            ) {
-                setNamesHelperTextProps({
-                    type: 'error',
-                    message: 'Enter first name',
-                });
-                result = false;
-            } else if (
-                lastName.value.trim().length < 1 &&
-                firstName.value.trim().length > 0
-            ) {
-                setNamesHelperTextProps({
-                    type: 'error',
-                    message: 'Enter last name',
-                });
-                result = false;
-            } else setNamesHelperTextProps({ type: 'none' });
-        })();
+            } else {
+                setFormInput('password', 'error', false);
+            }
+        }
+        if (password.value.trim().length < 8) {
+            setFormInput('password', 'error', true);
+            setPasswordsHelperTextProps({
+                type: 'error',
+                message: 'Use 8 characters or more for your password',
+            });
+            result = false;
+        }
+        // Password confirm
+        if (passwordConfirm.value === password.value) {
+            setFormInput('passwordConfirm', 'error', false);
+        }
+        if (passwordConfirm.value !== password.value) {
+            //  && passwordRegex.test(password.value)
+            setFormInput('passwordConfirm', 'error', true);
+            setPasswordsHelperTextProps({
+                type: 'error',
+                message: "Those passwords didn't match. Try again.",
+            });
+            result = false;
+        }
+        // First name and last name together
+        if (!firstName.value.trim() && !lastName.value.trim()) {
+            setNamesHelperTextProps({
+                type: 'error',
+                message: 'Enter first and last names',
+            });
+            result = false;
+        }
+        if (!firstName.value.trim() && lastName.value.trim()) {
+            setNamesHelperTextProps({
+                type: 'error',
+                message: 'Enter first name',
+            });
+            result = false;
+        }
+        if (!lastName.value.trim() && firstName.value.trim()) {
+            setNamesHelperTextProps({
+                type: 'error',
+                message: 'Enter last name',
+            });
+            result = false;
+        }
+        if (firstName.value.trim() && lastName.value.trim()) {
+            setNamesHelperTextProps({ type: 'none' });
+        }
         return result;
     }, [
         firstName,
@@ -215,26 +218,24 @@ export default function useSignUp() {
                 },
             })
                 .then((response: AxiosResponse) => {
-                    if (response.status === 200) {
-                        setLoading(false);
-                        setFormInput('username', 'error', false);
-                        setUsernameHelperTextProps({ type: 'none' });
-                        lookie.set('token', response.data.token, '8h');
-                        navigate('/');
-                    }
+                    setFormInput('username', 'error', false);
+                    setUsernameHelperTextProps({ type: 'none' });
+                    lookie.set('token', response.data.token, '8h');
+                    navigate('/');
                 })
                 .catch((error: AxiosError) => {
                     if (error.response?.status === 409) {
-                        setLoading(false);
                         setFormInput('username', 'error', true);
                         setUsernameHelperTextProps({
                             type: 'error',
                             message: 'That username is taken. Try another.',
                         });
                     } else {
-                        setLoading(false);
                         navigate('/error');
                     }
+                })
+                .finally(() => {
+                    setLoading(false);
                 });
         }
     }, [

@@ -17,8 +17,6 @@ import Account from './account';
 import Apps from './apps';
 import Drawer from './drawer';
 
-// TODO: trim() ler düzeltilecek
-
 const Header = () => {
     const {
         credentials,

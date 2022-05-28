@@ -39,7 +39,7 @@ export default () => {
         passwordInput.focus();
     }, []);
     const handleSubmit = useCallback(() => {
-        if (password.value.trim().length === 0) {
+        if (!password.value.trim()) {
             setPassword({ value: password.value, error: true });
             setPasswordHelperTextProps({
                 type: 'error',

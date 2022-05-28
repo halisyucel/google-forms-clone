@@ -28,7 +28,7 @@ export default () => {
         emailOrPhoneInput.focus();
     }, []);
     const handleSubmit = useCallback(() => {
-        if (username.value.trim().length === 0) {
+        if (!username.value.trim()) {
             setUsername({ value: username.value, error: true });
             setUsernameHelperTextProps({
                 type: 'error',
