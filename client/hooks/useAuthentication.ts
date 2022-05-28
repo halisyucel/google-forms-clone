@@ -37,7 +37,7 @@ export default (props: UseAuthenticationProps) => {
             return;
         }
         axios({
-            method: 'post',
+            method: 'POST',
             url: `${Config.API_URL}/user/authenticate`,
             headers: {
                 Authorization: `Bearer ${localCredentials.token}`,

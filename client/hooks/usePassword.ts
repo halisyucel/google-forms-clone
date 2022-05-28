@@ -50,7 +50,7 @@ export default () => {
             setPasswordHelperTextProps({ type: 'none' });
             setLoading(true);
             axios({
-                method: 'post',
+                method: 'POST',
                 url: `${Config.API_URL}/user/sign-in`,
                 data: {
                     username: params.username,

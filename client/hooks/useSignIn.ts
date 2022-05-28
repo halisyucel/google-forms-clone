@@ -39,7 +39,7 @@ export default () => {
             setUsernameHelperTextProps({ type: 'none' });
             setLoading(true);
             axios({
-                method: 'post',
+                method: 'POST',
                 url: `${Config.API_URL}/user/check`,
                 data: {
                     username: username.value.trim().split('@gmail.com')[0],

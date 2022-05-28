@@ -205,7 +205,7 @@ export default function useSignUp() {
                 message: 'You can use letters, numbers & periods',
             });
             axios({
-                method: 'post',
+                method: 'POST',
                 url: `${Config.API_URL}/user/sign-up`,
                 data: {
                     firstName: firstName.value,
