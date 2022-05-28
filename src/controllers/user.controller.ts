@@ -22,7 +22,7 @@ export const signIn = async (req: Request, res: Response) => {
     if (!bcrypt.compareSync(value.password, user.getDataValue('passwordHash')))
         return res.status(401).json({ message: 'Invalid password' });
     const credentials = createJwtToken(user);
-    return res.json({ ...credentials });
+    return res.status(200).json({ ...credentials });
 };
 
 export const signUp = async (req: Request, res: Response) => {

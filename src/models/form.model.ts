@@ -1,5 +1,39 @@
+import Joi from 'joi';
 import { DataTypes } from 'sequelize';
 import connection from '../services/db.service';
+
+export type FormSchemaType =
+    | 'empty'
+    | 'event-rsvp'
+    | 't-shirt-request'
+    | 'contact-information'
+    | 'party-invitation'
+    | 'event-registration';
+
+export const CreateFormSchema = Joi.object({
+    schema: Joi.string()
+        .valid(
+            'empty',
+            'event-rsvp',
+            't-shirt-request',
+            'contact-information',
+            'party-invitation',
+            'event-registration',
+        )
+        .required(),
+});
+
+export const GetFormSchema = Joi.object({
+    id: Joi.string().required(),
+});
+
+export const UpdateFormAttributes = Joi.object({
+    id: Joi.string().required(),
+    key: Joi.string().required(),
+    value: Joi.alternatives()
+        .try(Joi.string(), Joi.boolean(), Joi.number())
+        .required(),
+});
 
 export const Form = connection.define(
     'Form',
@@ -18,10 +52,8 @@ export const Form = connection.define(
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-            },
+            allowNull: true,
+            defaultValue: null,
         },
         answersAreAcceptable: {
             type: DataTypes.BOOLEAN,
@@ -80,22 +112,17 @@ export const Form = connection.define(
                 notEmpty: true,
             },
         },
+        screenshot: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: null,
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 notEmpty: true,
             },
-        },
-        lastOpenedAt: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        screenshot: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
         },
     },
     {

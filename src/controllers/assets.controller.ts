@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
 import { DeleteUploadSchema, Upload } from '../models/assets.model';
+import { extractTokenFromHeader } from '../utils/helper.util';
 import { verifyJwtToken } from '../utils/user.util';
 
 export const upload = async (req: Request, res: Response) => {
-    const token = req.headers.authorization?.split(' ')[1] as string;
-    const { error, payload } = verifyJwtToken(token);
+    const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
     if (error) return res.status(401).json({ message: error });
     const upload = await Upload.create({
         name: req.file?.filename,
@@ -22,8 +22,7 @@ export const upload = async (req: Request, res: Response) => {
 };
 
 export const get = async (req: Request, res: Response) => {
-    const token = req.headers.authorization?.split(' ')[1] as string;
-    const { error, payload } = verifyJwtToken(token);
+    const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
     if (error) return res.status(401).json({ message: error });
     const uploads = await Upload.findAll({
         where: { userId: payload?.id },
@@ -39,8 +38,7 @@ export const get = async (req: Request, res: Response) => {
 };
 
 export const _delete = async (req: Request, res: Response) => {
-    const token = req.headers.authorization?.split(' ')[1] as string;
-    const jwtVerifyResponse = verifyJwtToken(token);
+    const jwtVerifyResponse = verifyJwtToken(extractTokenFromHeader(req));
     if (jwtVerifyResponse.error)
         return res.status(401).json({ message: jwtVerifyResponse.error });
     const bodyValidateResponse = DeleteUploadSchema.validate(req.body);

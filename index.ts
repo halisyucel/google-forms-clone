@@ -2,6 +2,7 @@ import cors from 'cors';
 import express, { Express, Request, Response } from 'express';
 import GeneralConfig from './src/configs/general.config';
 import AssetsRoute from './src/routes/assets.route';
+import FormRoute from './src/routes/form.route';
 import UserRoute from './src/routes/user.route';
 import connection from './src/services/db.service';
 
@@ -18,11 +19,12 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/user', UserRoute);
+app.use('/api/form', FormRoute);
 app.use('/assets', AssetsRoute);
 app.use('/uploads', express.static('assets/uploads'));
 
 (async () => {
-    await connection.sync();
+    await connection.sync({ alter: true });
     app.listen(port, () => {
         console.log(`[server]: Server is running at http://localhost:${port}`);
     });
