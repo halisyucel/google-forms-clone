@@ -51,7 +51,8 @@
             &:nth-child(1) {
                 margin-right: 32px;
             }
-            &:nth-child(5), &:nth-child(7) {
+            &:nth-child(5),
+            &:nth-child(7) {
                 margin-right: 0;
             }
             svg {

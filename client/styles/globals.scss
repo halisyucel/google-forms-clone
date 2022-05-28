@@ -8,15 +8,16 @@
     --color-gray-primary: rgb(95, 99, 104);
     --color-gray-secondary: rgb(117, 117, 117);
     --color-gray-tertiary: rgb(248, 249, 250);
-    --color-gray-quaternary:  rgb(241, 243, 244);
+    --color-gray-quaternary: rgb(241, 243, 244);
     --color-red: rgb(211, 47, 47);
     --color-purple: rgb(114, 72, 185);
     --color-border: #dadce0;
 }
-html{
-    scroll-behavior:smooth
+html {
+    scroll-behavior: smooth;
 }
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
 }
@@ -35,7 +36,7 @@ a:hover {
     background-color: #f6fafe;
 }
 a:focus {
-    background-color: rgba(26,115,232,.12);
+    background-color: rgba(26, 115, 232, 0.12);
     -webkit-box-shadow: 0 0 0 2px #1a73e8;
     box-shadow: 0 0 0 2px #1a73e8;
 }
@@ -69,7 +70,8 @@ a:focus {
 .MuiButton-text {
     font-weight: 400 !important;
 }
-.MuiButton-outlined, .MuiButton-text {
+.MuiButton-outlined,
+.MuiButton-text {
     color: var(--color-blue) !important;
 }
 .MuiButton-contained {

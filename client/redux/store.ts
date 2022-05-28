@@ -4,11 +4,11 @@ import settingsReducer from './features/settingsSlice';
 import snackbarReducer from './features/snackbarSlice';
 
 export const store = configureStore({
-	reducer: {
-		credentials: credentialsReducer,
-		settings: settingsReducer,
-		snackbar: snackbarReducer,
-	},
+    reducer: {
+        credentials: credentialsReducer,
+        settings: settingsReducer,
+        snackbar: snackbarReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

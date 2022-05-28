@@ -1,5 +1,5 @@
-import * as AssetsController from '../controllers/assets.controller';
 import { Router } from 'express';
+import * as AssetsController from '../controllers/assets.controller';
 import { upload } from '../services/assets.service';
 
 const router = Router();
