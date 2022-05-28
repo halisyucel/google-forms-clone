@@ -75,7 +75,6 @@ const Templates = () => {
     }, [hideAllTemplatesButton]);
     const createForm = useCallback(
         (schema = 'empty') => {
-            // TODO: bütün reslere AxiosResponse typescript eklenecek
             dispatch(
                 updateBackdrop({
                     backdropName: 'dashboard',

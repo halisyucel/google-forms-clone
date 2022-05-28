@@ -23,7 +23,7 @@ const Backdrop: React.FC<BackdropProps> = ({
                 color: color ?? 'rgb(26, 115, 232)',
                 backgroundColor: backgroundColor ?? 'rgba(255, 255, 255, 0.5)',
             }}
-            open={(backdrops as any)[name]}
+            open={name === 'layout' || (backdrops as any)[name]}
         >
             <CircularProgress color={'inherit'} />
         </MuiBackdrop>

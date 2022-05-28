@@ -13,10 +13,6 @@ export interface UseAuthenticationProps {
     fallback?: string;
 }
 
-// TODO: .then .catch lere .finally eklenecek
-// TODO: if else lerdeki elseler kaldırılacak
-// TODO: prettier eklenecek
-
 export default (props: UseAuthenticationProps) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();

@@ -1,17 +1,16 @@
-import React, { ReactNode } from 'react';
-
-// todo burası geliştirilecek
+import React from 'react';
+import Backdrop from '../global/backdrop';
 
 export type LoadingLayoutProps = {
-    children: ReactNode;
+    children: React.ReactNode;
     loading: boolean;
 };
 
-const LoadingLayout = (props: LoadingLayoutProps) => {
-    return props.loading ? (
-        <div>loading...</div>
+const LoadingLayout: React.FC<LoadingLayoutProps> = ({ children, loading }) => {
+    return loading ? (
+        <Backdrop name={'layout'} backgroundColor={'rgba(255, 255, 255, 1)'} />
     ) : (
-        <React.Fragment>{props.children}</React.Fragment>
+        <React.Fragment>{children}</React.Fragment>
     );
 };
 

@@ -230,9 +230,9 @@ export default function useSignUp() {
                             type: 'error',
                             message: 'That username is taken. Try another.',
                         });
-                    } else {
-                        navigate('/error');
+                        return;
                     }
+                    navigate('/error');
                 })
                 .finally(() => {
                     setLoading(false);

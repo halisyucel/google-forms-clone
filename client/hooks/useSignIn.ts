@@ -34,38 +34,37 @@ export default () => {
                 type: 'error',
                 message: 'Enter an email or phone number',
             });
-        } else {
-            setUsername({ value: username.value, error: false });
-            setUsernameHelperTextProps({ type: 'none' });
-            setLoading(true);
-            axios({
-                method: 'POST',
-                url: `${Config.API_URL}/user/check`,
-                data: {
-                    username: username.value.trim().split('@gmail.com')[0],
-                },
-            })
-                .then((response: AxiosResponse) => {
-                    if (response.status === 200) {
-                        setLoading(false);
-                        setUsername({ value: username.value, error: false });
-                        setUsernameHelperTextProps({ type: 'none' });
-                        navigate(
-                            `/sign-in/password/${
-                                username.value.trim().split('@gmail.com')[0]
-                            }`,
-                        );
-                    }
-                })
-                .catch(() => {
-                    setLoading(false);
-                    setUsername({ value: username.value, error: true });
-                    setUsernameHelperTextProps({
-                        type: 'error',
-                        message: "Couldn't find your Google Account",
-                    });
-                });
+            return;
         }
+        setUsername({ value: username.value, error: false });
+        setUsernameHelperTextProps({ type: 'none' });
+        setLoading(true);
+        axios({
+            method: 'POST',
+            url: `${Config.API_URL}/user/check`,
+            data: {
+                username: username.value.trim().split('@gmail.com')[0],
+            },
+        })
+            .then((response: AxiosResponse) => {
+                setUsername({ value: username.value, error: false });
+                setUsernameHelperTextProps({ type: 'none' });
+                navigate(
+                    `/sign-in/password/${
+                        username.value.trim().split('@gmail.com')[0]
+                    }`,
+                );
+            })
+            .catch(() => {
+                setUsername({ value: username.value, error: true });
+                setUsernameHelperTextProps({
+                    type: 'error',
+                    message: "Couldn't find your Google Account",
+                });
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [username.value, navigate]);
     return {
         loading,

@@ -9,7 +9,7 @@ import {
     Divider,
     Paper,
 } from '@mui/material';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import lookie from 'lookie';
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,7 +44,7 @@ const Account = (props: PopupProps) => {
             .then(() => {
                 logout();
             })
-            .catch((err) => {
+            .catch((err: AxiosError) => {
                 dispatch(
                     throwAlert({
                         message: 'Oops! Something went wrong.',
