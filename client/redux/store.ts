@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import backdropsReducer from './features/backdropsSlice';
 import credentialsReducer from './features/credentialsSlice';
 import settingsReducer from './features/settingsSlice';
 import snackbarReducer from './features/snackbarSlice';
@@ -8,6 +9,7 @@ export const store = configureStore({
         credentials: credentialsReducer,
         settings: settingsReducer,
         snackbar: snackbarReducer,
+        backdrops: backdropsReducer,
     },
 });
 

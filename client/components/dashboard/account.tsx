@@ -1,10 +1,8 @@
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import {
     Avatar,
-    Backdrop,
     Button,
     Chip,
-    CircularProgress,
     Dialog,
     DialogActions,
     DialogContent,
@@ -17,24 +15,28 @@ import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Config from '../../config';
+import { updateBackdrop } from '../../redux/actions';
 import { throwAlert } from '../../redux/features/snackbarSlice';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/dashboard.account.module.scss';
 import { PopupProps } from '../../utils/types';
+
+// TODO: bütün featuresten gelen importları düzelt
 
 const Account = (props: PopupProps) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const credentials = useSelector((state: RootState) => state.credentials);
     const [openDialog, setOpenDialog] = useState<boolean>(false);
-    const [openProgress, setOpenProgress] = useState<boolean>(false);
     const logout = useCallback(() => {
         lookie.remove('GOOGLE_FORMS_CLONE_CREDENTIALS');
         navigate('/', { replace: true });
     }, []);
     const deleteAccount = useCallback(() => {
         setOpenDialog(false);
-        setOpenProgress(true);
+        dispatch(
+            updateBackdrop({ backdropName: 'dashboard', backdropState: true }),
+        );
         axios({
             method: 'DELETE',
             url: `${Config.API_URL}/user/`,
@@ -44,14 +46,20 @@ const Account = (props: PopupProps) => {
         })
             .then(() => {
                 logout();
-                setOpenProgress(false);
             })
             .catch((err) => {
-                setOpenProgress(false);
                 dispatch(
                     throwAlert({
                         message: 'Oops! Something went wrong.',
                         severity: 'error',
+                    }),
+                );
+            })
+            .finally(() => {
+                dispatch(
+                    updateBackdrop({
+                        backdropName: 'dashboard',
+                        backdropState: false,
                     }),
                 );
             });
@@ -147,9 +155,6 @@ const Account = (props: PopupProps) => {
                     </Button>
                 </DialogActions>
             </Dialog>
-            <Backdrop sx={{ color: '#fff', zIndex: '110' }} open={openProgress}>
-                <CircularProgress color={'inherit'} />
-            </Backdrop>
         </React.Fragment>
     );
 };
