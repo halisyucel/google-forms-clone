@@ -6,21 +6,58 @@ import {
     ListItem,
     ListItemButton,
     Paper,
+    Tooltip,
 } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Config from '../../config';
+import { updateBackdrop } from '../../redux/features/backdropsSlice';
 import { setSetting } from '../../redux/features/settingsSlice';
+import { throwAlert } from '../../redux/features/snackbarSlice';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/dashboard.templates.module.scss';
+
+export interface TemplateProps {
+    schema: string;
+    title: string;
+    imageUrl?: string;
+    onClick: (schema: string) => void;
+}
 
 export interface HideAllTemplatePopupProps {
     top: number;
     left: number;
 }
 
+const Template: React.FC<TemplateProps> = ({
+    schema,
+    title,
+    imageUrl,
+    onClick,
+}) => {
+    return (
+        <div
+            className={styles.templates__items__item}
+            onClick={() => onClick(schema)}
+        >
+            <div
+                className={styles.templates__items__item__image}
+                style={{
+                    backgroundImage: `url(${imageUrl})`,
+                }}
+            />
+            <div className={styles.templates__items__item__title}>{title}</div>
+        </div>
+    );
+};
+
 const Templates = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const settings = useSelector((state: RootState) => state.settings);
+    const credentials = useSelector((state: RootState) => state.credentials);
     const hideAllTemplatesButton = useRef<HTMLButtonElement>(null);
     const [openHideAllTemplatesButton, setOpenHideAllTemplatesButton] =
         useState<boolean>(false);
@@ -29,7 +66,6 @@ const Templates = () => {
             top: 0,
             left: 0,
         });
-
     useEffect(() => {
         const locationInfo =
             hideAllTemplatesButton.current?.getBoundingClientRect();
@@ -39,6 +75,43 @@ const Templates = () => {
                 (locationInfo?.left ?? 0) - 78 + (locationInfo?.width ?? 0) / 2,
         });
     }, [hideAllTemplatesButton]);
+    const createForm = useCallback(
+        (schema = 'empty') => {
+            // TODO: bütün reslere AxiosResponse typescript eklenecek
+            dispatch(
+                updateBackdrop({
+                    backdropName: 'dashboard',
+                    backdropState: true,
+                }),
+            );
+            axios({
+                method: 'POST',
+                url: `${Config.API_URL}/form/`,
+                data: { schema },
+                headers: { Authorization: `Bearer ${credentials.token}` },
+            })
+                .then((res: AxiosResponse) => {
+                    navigate(`/dashboard/editor/${res.data.id}`);
+                })
+                .catch(() => {
+                    dispatch(
+                        throwAlert({
+                            message: 'Oops! Something went wrong.',
+                            severity: 'error',
+                        }),
+                    );
+                })
+                .finally(() => {
+                    dispatch(
+                        updateBackdrop({
+                            backdropName: 'dashboard',
+                            backdropState: false,
+                        }),
+                    );
+                });
+        },
+        [navigate, dispatch, credentials.token],
+    );
     return (
         <React.Fragment>
             <div
@@ -65,52 +138,42 @@ const Templates = () => {
                     </IconButton>
                 </div>
                 <div className={styles.templates__items}>
-                    <div className={styles.templates__items__item}>
-                        <div
-                            className={styles.templates__items__item__image}
-                            style={{
-                                backgroundImage: 'url(/template-empty.png)',
-                            }}
-                        />
-                        <div className={styles.templates__items__item__title}>
-                            Empty
-                        </div>
-                    </div>
-                    <div className={styles.templates__items__item}>
-                        <div className={styles.templates__items__item__image} />
-                        <div className={styles.templates__items__item__title}>
-                            Event RSVP Form
-                        </div>
-                    </div>
-                    <div className={styles.templates__items__item}>
-                        <div className={styles.templates__items__item__image} />
-                        <div className={styles.templates__items__item__title}>
-                            T-Shirt Request Form
-                        </div>
-                    </div>
-                    <div className={styles.templates__items__item}>
-                        <div className={styles.templates__items__item__image} />
-                        <div className={styles.templates__items__item__title}>
-                            Contact Information
-                        </div>
-                    </div>
-                    <div className={styles.templates__items__item}>
-                        <div className={styles.templates__items__item__image} />
-                        <div className={styles.templates__items__item__title}>
-                            Party Invitation
-                        </div>
-                    </div>
-                    <div className={styles.templates__items__item}>
-                        <div className={styles.templates__items__item__image} />
-                        <div className={styles.templates__items__item__title}>
-                            Event Registration Form
-                        </div>
-                    </div>
+                    <Template
+                        schema={'empty'}
+                        title={'Empty'}
+                        onClick={createForm}
+                        imageUrl={'/template-empty.png'}
+                    />
+                    <Template
+                        schema={'event-rsvp'}
+                        title={'Event RSVP Form'}
+                        onClick={createForm}
+                    />
+                    <Template
+                        schema={'t-shirt-request'}
+                        title={'T-Shirt Request Form'}
+                        onClick={createForm}
+                    />
+                    <Template
+                        schema={'contact-information'}
+                        title={'Contact Information'}
+                        onClick={createForm}
+                    />
+                    <Template
+                        schema={'party-invitation'}
+                        title={'Party Invitation'}
+                        onClick={createForm}
+                    />
+                    <Template
+                        schema={'event-registration-form'}
+                        title={'Event Registration Form'}
+                        onClick={createForm}
+                    />
                 </div>
             </div>
             <Paper
-                elevation={1}
                 className={styles.show_recently_used_templates_popup}
+                elevation={1}
                 style={{
                     display: openHideAllTemplatesButton ? 'block' : 'none',
                     top: hideAllTemplatesPopupPosition.top,
@@ -138,22 +201,23 @@ const Templates = () => {
                     </ListItem>
                 </List>
             </Paper>
-            <button
-                className={styles.hidden_button}
-                style={{
-                    display: settings.showRecentlyUsedTemplates
-                        ? 'none'
-                        : 'flex',
-                }}
-            >
-                <span className={styles.hidden_button__pseudo_button}>
-                    <img src={'/new-form-button.png'} alt={'New Form'} />
-                </span>
-                {/* TODO üzerine popover yapıalcak */}
-                <span className={styles.hidden_button__real_button}>
-                    <EditOutlinedIcon />
-                </span>
-            </button>
+            <Tooltip title={'Create a new form'} placement={'left'}>
+                <button
+                    className={styles.hidden_button}
+                    style={{
+                        display: settings.showRecentlyUsedTemplates
+                            ? 'none'
+                            : 'flex',
+                    }}
+                >
+                    <span className={styles.hidden_button__pseudo_button}>
+                        <img src={'/new-form-button.png'} alt={'New Form'} />
+                    </span>
+                    <span className={styles.hidden_button__real_button}>
+                        <EditOutlinedIcon />
+                    </span>
+                </button>
+            </Tooltip>
         </React.Fragment>
     );
 };

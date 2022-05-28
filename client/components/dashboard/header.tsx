@@ -17,6 +17,8 @@ import Account from './account';
 import Apps from './apps';
 import Drawer from './drawer';
 
+// TODO: trim() ler düzeltilecek
+
 const Header = () => {
     const {
         credentials,
@@ -81,10 +83,9 @@ const Header = () => {
                         endAdornment: (
                             <InputAdornment
                                 style={{
-                                    visibility:
-                                        searchValue.trim() === ''
-                                            ? 'hidden'
-                                            : 'visible',
+                                    visibility: searchValue.trim()
+                                        ? 'visible'
+                                        : 'hidden',
                                 }}
                                 className={
                                     styles.header__search__input__adornment

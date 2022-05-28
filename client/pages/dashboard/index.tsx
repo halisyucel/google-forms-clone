@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../../components/dashboard/header';
 import Settings from '../../components/dashboard/settings';
 import Templates from '../../components/dashboard/templates';
+import Backdrop from '../../components/global/backdrop';
 import LoadingLayout from '../../components/layouts/loading-layout';
 import useAuthentication from '../../hooks/useAuthentication';
 
@@ -22,6 +23,7 @@ const Dashboard = () => {
             <Header />
             <Templates />
             <Settings />
+            <Backdrop name={'dashboard'} />
         </LoadingLayout>
     );
 };
