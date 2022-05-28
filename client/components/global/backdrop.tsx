@@ -6,13 +6,23 @@ import { RootState } from '../../redux/store';
 // TODO: diğer elementlerde de bunu kullan
 export interface BackdropProps {
     name: string;
+    backgroundColor?: string;
+    color?: string;
 }
 
-const Backdrop: React.FC<BackdropProps> = ({ name }) => {
+const Backdrop: React.FC<BackdropProps> = ({
+    color,
+    backgroundColor,
+    name,
+}) => {
     const backdrops = useSelector((state: RootState) => state.backdrops);
     return (
         <MuiBackdrop
-            sx={{ color: '#fff', zIndex: '110' }}
+            sx={{
+                zIndex: '110',
+                color: color ?? 'rgb(26, 115, 232)',
+                backgroundColor: backgroundColor ?? 'rgba(255, 255, 255, 0.5)',
+            }}
             open={(backdrops as any)[name]}
         >
             <CircularProgress color={'inherit'} />

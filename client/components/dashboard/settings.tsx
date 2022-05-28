@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSetting } from '../../redux/features/settingsSlice';
+import { setSetting } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/dashboard.settings.module.scss';
 

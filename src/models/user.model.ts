@@ -26,6 +26,11 @@ export const UserCheckUserSchema = Joi.object({
 export const User = connection.define(
     'User',
     {
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+        },
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,

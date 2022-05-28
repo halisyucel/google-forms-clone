@@ -1,7 +1,7 @@
 import { Alert, Snackbar as MuiSnackbar, Stack } from '@mui/material';
 import React, { SyntheticEvent, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeAlert } from '../../redux/features/snackbarSlice';
+import { closeAlert } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 
 const Snackbar = () => {

@@ -12,7 +12,7 @@ import {
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setSetting } from '../../redux/features/settingsSlice';
+import { setSetting } from '../../redux/actions';
 import styles from '../../styles/components/dashboard.drawer.module.scss';
 import { PopupProps } from '../../utils/types';
 

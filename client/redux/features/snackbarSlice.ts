@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
 export interface SnackbarState {
     open: boolean;
@@ -21,12 +21,15 @@ export const snackbarSlice = createSlice({
     name: 'snackbar',
     initialState,
     reducers: {
-        throwAlert: (state, action: PayloadAction<ThrowAlertProps>) => {
+        throwAlert: (
+            state: Draft<SnackbarState>,
+            action: PayloadAction<ThrowAlertProps>,
+        ) => {
             state.open = true;
             state.message = action.payload.message;
             state.severity = action.payload.severity;
         },
-        closeAlert: (state) => {
+        closeAlert: (state: Draft<SnackbarState>) => {
             state.open = false;
         },
     },

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CredentialsState {
     token: string;
@@ -28,14 +28,17 @@ export const credentialsSlice = createSlice({
     name: 'credentials',
     initialState,
     reducers: {
-        setCredentials: (state, action: PayloadAction<SetCredentialsProps>) => {
+        setCredentials: (
+            state: Draft<CredentialsState>,
+            action: PayloadAction<SetCredentialsProps>,
+        ) => {
             state.token = action.payload.token || state.token;
             state.id = action.payload.id || state.id;
             state.username = action.payload.username || state.username;
             state.firstName = action.payload.firstName || state.firstName;
             state.lastName = action.payload.lastName || state.lastName;
         },
-        clearCredentials: (state) => {
+        clearCredentials: (state: Draft<CredentialsState>) => {
             state.token = '';
             state.id = 0;
             state.username = '';

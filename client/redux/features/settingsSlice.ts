@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
 export interface SettingsState {
     showRecentlyUsedTemplates: boolean;
@@ -19,7 +19,10 @@ export const settingsSlice = createSlice({
     name: 'settings',
     initialState,
     reducers: {
-        setSetting: (state, action: PayloadAction<SetSettingsProps>) => {
+        setSetting: (
+            state: Draft<SettingsState>,
+            action: PayloadAction<SetSettingsProps>,
+        ) => {
             if (action.payload.key)
                 if (state.hasOwnProperty(action.payload.key))
                     (state as any)[action.payload.key] = action.payload.value;

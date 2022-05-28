@@ -15,13 +15,10 @@ import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Config from '../../config';
-import { updateBackdrop } from '../../redux/actions';
-import { throwAlert } from '../../redux/features/snackbarSlice';
+import { throwAlert, updateBackdrop } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/dashboard.account.module.scss';
 import { PopupProps } from '../../utils/types';
-
-// TODO: bütün featuresten gelen importları düzelt
 
 const Account = (props: PopupProps) => {
     const navigate = useNavigate();

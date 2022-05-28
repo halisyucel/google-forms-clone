@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Config from '../config';
-import {
-    CredentialsState,
-    setCredentials,
-} from '../redux/features/credentialsSlice';
+import { setCredentials } from '../redux/actions';
+import { CredentialsState } from '../redux/features/credentialsSlice';
 import { RootState } from '../redux/store';
 
 export interface UseAuthenticationProps {

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Config from '../config';
-import { setCredentials } from '../redux/features/credentialsSlice';
+import { setCredentials } from '../redux/actions';
 import { RootState } from '../redux/store';
 import { createHelperText } from '../utils/helper';
 import { FormElement, HelperText } from '../utils/types';

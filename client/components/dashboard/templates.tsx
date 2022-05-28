@@ -13,9 +13,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Config from '../../config';
-import { updateBackdrop } from '../../redux/features/backdropsSlice';
-import { setSetting } from '../../redux/features/settingsSlice';
-import { throwAlert } from '../../redux/features/snackbarSlice';
+import { setSetting, throwAlert, updateBackdrop } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/dashboard.templates.module.scss';
 
@@ -204,6 +202,7 @@ const Templates = () => {
             <Tooltip title={'Create a new form'} placement={'left'}>
                 <button
                     className={styles.hidden_button}
+                    onClick={() => createForm('empty')}
                     style={{
                         display: settings.showRecentlyUsedTemplates
                             ? 'none'
