@@ -1,33 +1,33 @@
 .account {
-    z-index: 99;
     position: fixed;
     top: 64px;
     right: 12px;
+    z-index: 99;
     width: 310px;
     border-radius: 8px !important;
     .account__manage {
-        padding: 20px 0;
         display: flex;
         flex-flow: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        padding: 20px 0;
         .account__manage__image {
+            position: relative;
             width: 80px;
             height: 80px;
-            position: relative;
             margin-bottom: 20px;
             .account__manage__image__new_photo {
                 position: absolute;
-                bottom: 0;
                 right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 24px;
                 height: 24px;
-                border-radius: 24px;
-                background-color: var(--color-white);
                 color: var(--color-gray-primary);
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                background-color: var(--color-white);
+                border-radius: 24px;
                 box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
                 cursor: pointer;
                 svg {
@@ -41,23 +41,23 @@
         }
         .account__manage__name,
         .account__manage__username {
-            font-family: var(--font-noto-sans);
             color: var(--color-black);
+            font-family: var(--font-noto-sans);
         }
         .account__manage__name {
+            margin-bottom: 6px;
             font-weight: 600;
             font-size: 16px;
-            margin-bottom: 6px;
         }
         .account__manage__username {
-            font-size: 14px;
             margin-bottom: 20px;
+            font-size: 14px;
         }
         .account__manage__chip {
             color: var(--color-black);
-            font-family: var(--font-noto-sans);
             font-weight: 500;
             font-size: 14px;
+            font-family: var(--font-noto-sans);
             & > span {
                 overflow: unset;
                 &:nth-child(2) {
@@ -73,21 +73,21 @@
         }
     }
     .account__button_area {
-        width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        width: 100%;
         padding: 20px 0;
         .account__button_area__button {
             padding: 8px 24px;
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
             color: var(--color-black);
-            font-family: var(--font-noto-sans);
             font-weight: 500;
             font-size: 14px;
-            cursor: pointer;
+            font-family: var(--font-noto-sans);
             background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            cursor: pointer;
             &:hover {
                 background-color: var(--color-gray-quaternary);
             }
@@ -97,31 +97,31 @@
         }
     }
     .account__links {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 16px 0;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 16px 0;
         color: var(--color-gray-primary);
-        font-family: var(--font-noto-sans);
         font-size: 12px;
+        font-family: var(--font-noto-sans);
         a {
             color: currentColor;
-            cursor: pointer;
-            text-decoration: none;
             white-space: nowrap;
+            text-decoration: none;
+            cursor: pointer;
         }
     }
 }
 .dialog {
     .dialog_content {
         margin-top: 20px;
-        font-family: var(--font-noto-sans);
         color: var(--color-black);
-        font-size: 14px;
-        line-height: 1.5;
         font-weight: 500;
+        font-size: 14px;
+        font-family: var(--font-noto-sans);
+        line-height: 1.5;
     }
     .dialog__actions {
         margin: 0 20px 20px 20px;

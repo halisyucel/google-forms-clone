@@ -2,19 +2,19 @@
     position: relative;
     padding: 24px 0 40px 0;
     .page_break_section__content {
-        width: 100%;
-        border-top: 1px solid var(--color-border);
-        padding: 36px 0 24px 0;
-        text-align: center;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 36px 0 24px 0;
         color: var(--color-gray-primary);
+        text-align: center;
+        border-top: 1px solid var(--color-border);
         .page_break_section__content__text {
+            font-weight: 500;
             font-size: 16px;
             font-family: var(--font-noto-sans);
-            font-weight: 500;
         }
         .page_break_section__content__svg {
             transform: rotate(-90deg);

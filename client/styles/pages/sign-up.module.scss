@@ -2,30 +2,30 @@
     width: 748px;
 }
 .sign_up__content {
-    padding: 0 !important;
     width: 100%;
+    padding: 0 !important;
     .sign_up__content__header {
         display: flex;
         flex-flow: column;
-        justify-content: center;
         align-items: flex-start;
+        justify-content: center;
         .sign_up__content__header__logo {
             height: 24px;
         }
         .sign_up__content__header__texts {
-            font-family: var(--font-noto-sans);
             margin-top: 16px;
-            text-align: center;
             color: var(--color-black);
-            font-size: 24px;
             font-weight: 400;
+            font-size: 24px;
+            font-family: var(--font-noto-sans);
             line-height: 32px;
+            text-align: center;
         }
     }
     .sign_up__content__body {
-        margin-top: 24px;
         display: flex;
         align-items: flex-start;
+        margin-top: 24px;
         .sing_up__content__body__form {
             width: calc(100% - 300px);
             .sign_up__content__body__form__input_area {
@@ -43,40 +43,40 @@
             }
             .sign_up__content__body__form__danger {
                 padding: 9px 9px 24px 9px;
-                font-size: 14px;
-                font-weight: 500;
-                font-family: var(--font-noto-sans);
                 color: var(--color-red);
+                font-weight: 500;
+                font-size: 14px;
+                font-family: var(--font-noto-sans);
                 line-height: 20px;
             }
         }
         .sing_up__content__body__image {
-            width: 252px;
-            margin: 0 0 0 48px;
             display: flex;
             flex-flow: column;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: flex-start;
+            width: 252px;
+            margin: 0 0 0 48px;
             img {
                 width: 80%;
             }
             figcaption {
-                font-family: var(--font-noto-sans);
-                font-size: 16px;
-                font-weight: 300;
-                text-align: center;
                 margin-top: 16px;
+                font-weight: 300;
+                font-size: 16px;
+                font-family: var(--font-noto-sans);
+                text-align: center;
             }
         }
     }
 }
 .sign_up__footer {
-    padding: 0 !important;
-    margin-top: 42px;
-    width: calc(100% - 300px);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 300px);
+    margin-top: 42px;
+    padding: 0 !important;
     .sign_up__footer__button {
         text-transform: none;
     }

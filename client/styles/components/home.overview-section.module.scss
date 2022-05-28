@@ -1,27 +1,27 @@
 .overview {
-    padding: 105px 0;
     display: flex;
+    padding: 105px 0;
     .overview__content {
         flex: 1;
         h2 {
             width: 500px;
-            color: var(--color-black);
-            font-family: var(--font-noto-sans);
-            font-size: 60px;
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            line-height: 72px;
-            text-align: left;
             margin: 0 0 24px 0;
+            color: var(--color-black);
+            font-weight: 400;
+            font-size: 60px;
+            font-family: var(--font-noto-sans);
+            line-height: 72px;
+            letter-spacing: -0.5px;
+            text-align: left;
         }
         p {
             width: 500px;
+            margin: 0 0 36px 0;
             color: var(--color-gray-primary);
-            font-family: var(--font-noto-sans);
             font-size: 20px;
+            font-family: var(--font-noto-sans);
             line-height: 28px;
             text-align: left;
-            margin: 0 0 36px 0;
         }
         .overview__content__buttons {
             width: 500px;
@@ -34,28 +34,28 @@
             }
         }
         .overview__content__sign_up {
-            width: 500px;
             display: flex;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: flex-start;
+            width: 500px;
             p {
                 width: fit-content;
-                font-size: 16px;
-                font-weight: 400;
-                color: var(--color-gray-primary);
-                font-family: var(--font-noto-sans);
-                margin-bottom: 2px;
                 margin-right: 12px;
+                margin-bottom: 2px;
+                color: var(--color-gray-primary);
+                font-weight: 400;
+                font-size: 16px;
+                font-family: var(--font-noto-sans);
             }
         }
     }
     .overview__slide_show {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 728px;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
         .overview__slide_show__image {
             width: 100%;
             -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.25));
@@ -63,11 +63,11 @@
         }
         .overview__slide_show__cursor {
             position: absolute;
-            height: 36px;
             top: 220px; // 75px
             left: 345px; // 400px
-            transition: top 1.5s ease, left 1.5s ease, opacity 1s ease;
             z-index: 96;
+            height: 36px;
+            transition: top 1.5s ease, left 1.5s ease, opacity 1s ease;
         }
     }
 }

@@ -2,70 +2,70 @@
     width: 452px;
 }
 .sign_in__content {
-    padding: 0 !important;
     width: 100%;
+    padding: 0 !important;
     .sign_in__content__header {
         display: flex;
         flex-flow: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         .sign_in__content__header__logo {
             height: 24px;
         }
         .sign_in__content__header__texts {
-            font-family: var(--font-noto-sans);
             margin-top: 16px;
-            text-align: center;
             color: var(--color-black);
+            font-family: var(--font-noto-sans);
+            text-align: center;
             .sign_in__content__header__texts__sign_in {
-                font-size: 24px;
                 font-weight: 400;
+                font-size: 24px;
                 line-height: 32px;
             }
             .sign_in__content__header__texts__continue {
                 margin-top: 8px;
-                font-size: 16px;
                 font-weight: 400;
+                font-size: 16px;
                 line-height: 24px;
             }
         }
     }
     .sign_in__content__body {
-        margin-top: 24px;
         width: 100%;
+        margin-top: 24px;
         .sign_in__content__body__input {
             width: 100%;
         }
         .sign_in__content__body__forgot_email {
             display: inline-block;
             margin: 9px 0 3px 0;
+            font-weight: 500;
             font-size: 14px;
             line-height: 20px;
-            font-weight: 500;
         }
         .sign_in__content__body__information {
             margin-top: 32px;
             padding: 9px 0 3px 0;
-            font-size: 14px;
-            line-height: 20px;
-            font-family: var(--font-noto-sans);
             font-weight: 400;
+            font-size: 14px;
+            font-family: var(--font-noto-sans);
+            line-height: 20px;
             opacity: 0.9;
             a {
+                font-weight: 500;
                 font-size: 14px;
                 line-height: 20px;
-                font-weight: 500;
             }
         }
     }
 }
 .sign_in__footer {
-    padding: 0 !important;
-    margin-top: 26px;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 26px;
+    padding: 0 !important;
     .sign_in__footer__button {
         text-transform: none;
         &:nth-child(1) {
