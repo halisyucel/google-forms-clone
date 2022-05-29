@@ -1,0 +1,35 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+	height: 64px;
+	padding: 0 8px;
+	background-color: var(--color-white);
+	.header__button {
+		color: var(--color-gray-primary);
+		cursor: pointer;
+		&.header__button__logo {
+			img {
+				height: 40px;
+			}
+			&:hover {
+				background-color: transparent;
+			}
+		}
+		&.header__button__send {
+			height: 36px;
+			margin: 0 12px;
+			color: var(--color-white);
+			text-transform: none;
+			background-color: var(--color-purple) !important;
+		}
+		&.header__button__account {
+			margin: 0 12px;
+			color: var(--color-white);
+		}
+	}
+}

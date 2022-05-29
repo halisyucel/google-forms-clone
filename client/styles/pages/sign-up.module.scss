@@ -1,89 +1,89 @@
 .sign_up__container {
-    width: 748px;
+	width: 748px;
 }
 .sign_up__content {
-    width: 100%;
-    padding: 0 !important;
-    .sign_up__content__header {
-        display: flex;
-        flex-flow: column;
-        align-items: flex-start;
-        justify-content: center;
-        .sign_up__content__header__logo {
-            height: 24px;
-        }
-        .sign_up__content__header__texts {
-            margin-top: 16px;
-            color: var(--color-black);
-            font-weight: 400;
-            font-size: 24px;
-            font-family: var(--font-noto-sans);
-            line-height: 32px;
-            text-align: center;
-        }
-    }
-    .sign_up__content__body {
-        display: flex;
-        align-items: flex-start;
-        margin-top: 24px;
-        .sing_up__content__body__form {
-            width: calc(100% - 300px);
-            .sign_up__content__body__form__input_area {
-                display: flex;
-                .sign_up__content__body__form__input_area__input {
-                    margin-right: 8px;
-                }
-                .sign_up__content__body__form__input_area__input:last-child {
-                    margin-right: 0;
-                }
-            }
-            .sign_up__content__body__form__username {
-                width: 100%;
-                margin-top: 24px;
-            }
-            .sign_up__content__body__form__danger {
-                padding: 9px 9px 24px 9px;
-                color: var(--color-red);
-                font-weight: 500;
-                font-size: 14px;
-                font-family: var(--font-noto-sans);
-                line-height: 20px;
-            }
-        }
-        .sing_up__content__body__image {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: flex-start;
-            width: 252px;
-            margin: 0 0 0 48px;
-            img {
-                width: 80%;
-            }
-            figcaption {
-                margin-top: 16px;
-                font-weight: 300;
-                font-size: 16px;
-                font-family: var(--font-noto-sans);
-                text-align: center;
-            }
-        }
-    }
+	width: 100%;
+	padding: 0 !important;
+	.sign_up__content__header {
+		display: flex;
+		flex-flow: column;
+		align-items: flex-start;
+		justify-content: center;
+		.sign_up__content__header__logo {
+			height: 24px;
+		}
+		.sign_up__content__header__texts {
+			margin-top: 16px;
+			color: var(--color-black);
+			font-weight: 400;
+			font-size: 24px;
+			font-family: var(--font-noto-sans);
+			line-height: 32px;
+			text-align: center;
+		}
+	}
+	.sign_up__content__body {
+		display: flex;
+		align-items: flex-start;
+		margin-top: 24px;
+		.sing_up__content__body__form {
+			width: calc(100% - 300px);
+			.sign_up__content__body__form__input_area {
+				display: flex;
+				.sign_up__content__body__form__input_area__input {
+					margin-right: 8px;
+				}
+				.sign_up__content__body__form__input_area__input:last-child {
+					margin-right: 0;
+				}
+			}
+			.sign_up__content__body__form__username {
+				width: 100%;
+				margin-top: 24px;
+			}
+			.sign_up__content__body__form__danger {
+				padding: 9px 9px 24px 9px;
+				color: var(--color-red);
+				font-weight: 500;
+				font-size: 14px;
+				font-family: var(--font-noto-sans);
+				line-height: 20px;
+			}
+		}
+		.sing_up__content__body__image {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: flex-start;
+			width: 252px;
+			margin: 0 0 0 48px;
+			img {
+				width: 80%;
+			}
+			figcaption {
+				margin-top: 16px;
+				font-weight: 300;
+				font-size: 16px;
+				font-family: var(--font-noto-sans);
+				text-align: center;
+			}
+		}
+	}
 }
 .sign_up__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: calc(100% - 300px);
-    margin-top: 42px;
-    padding: 0 !important;
-    .sign_up__footer__button {
-        text-transform: none;
-    }
-    .sign_up__footer__button:nth-child(1) {
-        margin-left: -8px;
-    }
-    .sign_up__footer__button:nth-child(2) {
-        background-color: var(--color-blue);
-    }
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: calc(100% - 300px);
+	margin-top: 42px;
+	padding: 0 !important;
+	.sign_up__footer__button {
+		text-transform: none;
+	}
+	.sign_up__footer__button:nth-child(1) {
+		margin-left: -8px;
+	}
+	.sign_up__footer__button:nth-child(2) {
+		background-color: var(--color-blue);
+	}
 }

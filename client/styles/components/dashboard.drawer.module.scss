@@ -1,56 +1,56 @@
 .drawer {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    .drawer__title {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 24px 0 0 16px;
-        a {
-            display: inline-block;
-            height: 32px;
-            img {
-                height: 100%;
-            }
-        }
-    }
-    .drawer__list {
-        width: 280px;
-        .drawer__list__item {
-            .drawer__list__item_text > span {
-                color: var(--color-black) !important;
-                font-weight: 500 !important;
-                font-size: 14px !important;
-                font-family: var(--font-noto-sans) !important;
-                line-height: 27px !important;
-            }
-            .drawer__list__item_icon {
-                width: 36px;
-                min-width: 36px;
-                img {
-                    height: 24px;
-                }
-            }
-        }
-        .drawer__list__divider {
-            margin: 12px 0;
-        }
-    }
-    .drawer__links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        width: 100%;
-        margin-bottom: 24px;
-        color: var(--color-gray-primary);
-        font-size: 12px;
-        font-family: var(--font-noto-sans);
-        a {
-            color: currentColor;
-            white-space: nowrap;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    }
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	.drawer__title {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 24px 0 0 16px;
+		a {
+			display: inline-block;
+			height: 32px;
+			img {
+				height: 100%;
+			}
+		}
+	}
+	.drawer__list {
+		width: 280px;
+		.drawer__list__item {
+			.drawer__list__item_text > span {
+				color: var(--color-black) !important;
+				font-weight: 500 !important;
+				font-size: 14px !important;
+				font-family: var(--font-noto-sans) !important;
+				line-height: 27px !important;
+			}
+			.drawer__list__item_icon {
+				width: 36px;
+				min-width: 36px;
+				img {
+					height: 24px;
+				}
+			}
+		}
+		.drawer__list__divider {
+			margin: 12px 0;
+		}
+	}
+	.drawer__links {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		width: 100%;
+		margin-bottom: 24px;
+		color: var(--color-gray-primary);
+		font-size: 12px;
+		font-family: var(--font-noto-sans);
+		a {
+			color: currentColor;
+			white-space: nowrap;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
 }

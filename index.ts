@@ -14,8 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
-    debugger;
-    res.json({ message: 'OK' });
+	res.json({ message: 'OK' });
 });
 
 app.use('/api/user', UserRoute);
@@ -24,8 +23,8 @@ app.use('/assets', AssetsRoute);
 app.use('/uploads', express.static('assets/uploads'));
 
 (async () => {
-    await connection.sync({ alter: true });
-    app.listen(port, () => {
-        console.log(`[server]: Server is running at http://localhost:${port}`);
-    });
+	await connection.sync({ alter: true });
+	app.listen(port, () => {
+		console.log(`[server]: Server is running at http://localhost:${port}`);
+	});
 })();

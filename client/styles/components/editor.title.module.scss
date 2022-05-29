@@ -1,0 +1,26 @@
+.title {
+	margin: 4px 0 0 4px !important;
+	& > div {
+		&:before {
+			border-bottom: none !important;
+			&:hover {
+				border-bottom: none !important;
+			}
+		}
+	}
+}
+.invisible_title {
+	position: fixed;
+	z-index: -1;
+	font-size: 16px;
+	font-family: var(--font-roboto);
+	visibility: hidden;
+}
+.save_state_text {
+	margin: 4px 0 0 12px;
+	color: var(--color-gray-primary);
+	font-size: 12px;
+	font-family: var(--font-roboto);
+	font-style: italic;
+	line-height: 14px;
+}

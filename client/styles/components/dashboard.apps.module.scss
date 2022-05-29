@@ -1,47 +1,47 @@
 .apps {
-    position: fixed;
-    top: 64px;
-    right: 12px;
-    z-index: 99;
-    width: 310px;
-    border-radius: 8px !important;
-    .apps__list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        box-sizing: border-box;
-        padding: 11px 15px 15px 15px;
-        .apps__list__item {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: center;
-            width: 84px;
-            height: 84px;
-            margin-top: 4px;
-            border-radius: 8px;
-            .apps__list__item__image {
-                width: 40px;
-            }
-            & > span {
-                margin-top: 4px;
-                color: var(--color-gray-primary);
-                font-weight: 500;
-                font-size: 14px;
-                font-family: var(--font-noto-sans);
-            }
-        }
-    }
-    .apps__others {
-        display: block;
-        box-sizing: border-box;
-        width: calc(100% - 30px);
-        margin: 15px;
-        padding: 16px 36px;
-        color: var(--color-blue);
-        font-weight: 500;
-        font-size: 14px;
-        text-align: center;
-        border: 1px solid var(--color-border);
-    }
+	position: fixed;
+	top: 64px;
+	right: 12px;
+	z-index: 99;
+	width: 310px;
+	border-radius: 8px !important;
+	.apps__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		box-sizing: border-box;
+		padding: 11px 15px 15px 15px;
+		.apps__list__item {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
+			width: 84px;
+			height: 84px;
+			margin-top: 4px;
+			border-radius: 8px;
+			.apps__list__item__image {
+				width: 40px;
+			}
+			& > span {
+				margin-top: 4px;
+				color: var(--color-gray-primary);
+				font-weight: 500;
+				font-size: 14px;
+				font-family: var(--font-noto-sans);
+			}
+		}
+	}
+	.apps__others {
+		display: block;
+		box-sizing: border-box;
+		width: calc(100% - 30px);
+		margin: 15px;
+		padding: 16px 36px;
+		color: var(--color-blue);
+		font-weight: 500;
+		font-size: 14px;
+		text-align: center;
+		border: 1px solid var(--color-border);
+	}
 }

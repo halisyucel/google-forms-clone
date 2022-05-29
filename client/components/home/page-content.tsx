@@ -9,17 +9,17 @@ import SecuritySection from './security-section';
 import TemplatesSection from './templates-section';
 
 const PageContent = () => {
-    return (
-        <div className={styles.page_content}>
-            <OverviewSection />
-            <PageBreakSection />
-            <FeaturesSection />
-            <SecuritySection />
-            <PricingSection />
-            <TemplatesSection />
-            <ReadySection />
-        </div>
-    );
+	return (
+		<div className={styles.page_content}>
+			<OverviewSection />
+			<PageBreakSection />
+			<FeaturesSection />
+			<SecuritySection />
+			<PricingSection />
+			<TemplatesSection />
+			<ReadySection />
+		</div>
+	);
 };
 
 export default PageContent;

@@ -1,79 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
-    --font-noto-sans: 'Noto Sans', sans-serif;
-    --font-roboto: 'Roboto', sans-serif;
-    --color-white: rgb(255, 255, 255);
-    --color-black: rgb(32, 33, 36);
-    --color-blue: rgb(26, 115, 232);
-    --color-gray-primary: rgb(95, 99, 104);
-    --color-gray-secondary: rgb(117, 117, 117);
-    --color-gray-tertiary: rgb(248, 249, 250);
-    --color-gray-quaternary: rgb(241, 243, 244);
-    --color-red: rgb(211, 47, 47);
-    --color-purple: rgb(114, 72, 185);
-    --color-border: #dadce0;
+	--font-noto-sans: 'Noto Sans', sans-serif;
+	--font-roboto: 'Roboto', sans-serif;
+	--color-white: rgb(255, 255, 255);
+	--color-black: rgb(32, 33, 36);
+	--color-blue: rgb(26, 115, 232);
+	--color-gray-primary: rgb(95, 99, 104);
+	--color-gray-secondary: rgb(117, 117, 117);
+	--color-gray-tertiary: rgb(248, 249, 250);
+	--color-gray-quaternary: rgb(241, 243, 244);
+	--color-red: rgb(211, 47, 47);
+	--color-purple: rgb(114, 72, 185);
+	--color-border: #dadce0;
 }
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 html,
 body {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 #root {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 a {
-    width: fit-content;
-    color: var(--color-blue);
-    font-family: var(--font-noto-sans);
-    text-decoration: none;
-    border-radius: 4px;
+	width: fit-content;
+	color: var(--color-blue);
+	font-family: var(--font-noto-sans);
+	text-decoration: none;
+	border-radius: 4px;
 }
 a:hover {
-    background-color: #f6fafe;
+	background-color: #f6fafe;
 }
 a:focus {
-    background-color: rgba(26, 115, 232, 0.12);
-    -webkit-box-shadow: 0 0 0 2px #1a73e8;
-    box-shadow: 0 0 0 2px #1a73e8;
+	background-color: rgba(26, 115, 232, 0.12);
+	-webkit-box-shadow: 0 0 0 2px #1a73e8;
+	box-shadow: 0 0 0 2px #1a73e8;
 }
 .helper_text {
-    margin-top: 4px;
-    padding-left: 12px;
-    color: var(--color-black);
-    font-weight: 300;
-    font-size: 12px;
-    font-family: var(--font-noto-sans);
-    line-height: 20px;
+	margin-top: 4px;
+	padding-left: 12px;
+	color: var(--color-black);
+	font-weight: 300;
+	font-size: 12px;
+	font-family: var(--font-noto-sans);
+	line-height: 20px;
 }
 .show_password {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: -9px;
-    color: var(--color-black);
-    font-weight: 400;
-    font-size: 14px;
-    font-family: var(--font-noto-sans);
-    line-height: 20px;
-    cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-left: -9px;
+	color: var(--color-black);
+	font-weight: 400;
+	font-size: 14px;
+	font-family: var(--font-noto-sans);
+	line-height: 20px;
+	cursor: pointer;
 }
 .MuiButton-sizeLarge {
-    height: 50px !important;
-    font-weight: 500 !important;
-    font-size: 16px !important;
-    text-transform: unset !important;
+	height: 50px !important;
+	font-weight: 500 !important;
+	font-size: 16px !important;
+	text-transform: unset !important;
 }
 .MuiButton-text {
-    font-weight: 400 !important;
+	font-weight: 400 !important;
 }
 .MuiButton-outlined,
 .MuiButton-text {
-    color: var(--color-blue) !important;
+	color: var(--color-blue) !important;
 }
 .MuiButton-contained {
-    background-color: var(--color-blue) !important;
+	background-color: var(--color-blue) !important;
 }

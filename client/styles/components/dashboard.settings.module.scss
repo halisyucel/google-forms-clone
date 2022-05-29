@@ -1,41 +1,41 @@
 .settings {
-    .settings__title {
-        margin-top: 8px;
-        margin-bottom: 24px;
-        color: var(--color-black);
-        font-size: 22px;
-        font-family: var(--font-noto-sans);
-        line-height: 24px;
-    }
-    .settings__content {
-        width: 500px;
-        h3 {
-            margin: 0 0 8px 0;
-            color: var(--color-black);
-            font-weight: 500;
-            font-size: 16px;
-            font-family: var(--font-noto-sans);
-            line-height: 18px;
-        }
-        .settings__content__label {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-left: -10px;
-            color: var(--color-gray-primary);
-            font-weight: 400;
-            font-size: 14px;
-            font-family: var(--font-noto-sans);
-            line-height: 16px;
-            .settings__content__label__checkbox {
-                color: var(--color-purple) !important;
-            }
-        }
-    }
-    .settings__actions {
-        margin: 0 15px 15px 15px;
-        .settings__actions__button {
-            background-color: var(--color-purple) !important;
-        }
-    }
+	.settings__title {
+		margin-top: 8px;
+		margin-bottom: 24px;
+		color: var(--color-black);
+		font-size: 22px;
+		font-family: var(--font-noto-sans);
+		line-height: 24px;
+	}
+	.settings__content {
+		width: 500px;
+		h3 {
+			margin: 0 0 8px 0;
+			color: var(--color-black);
+			font-weight: 500;
+			font-size: 16px;
+			font-family: var(--font-noto-sans);
+			line-height: 18px;
+		}
+		.settings__content__label {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			margin-left: -10px;
+			color: var(--color-gray-primary);
+			font-weight: 400;
+			font-size: 14px;
+			font-family: var(--font-noto-sans);
+			line-height: 16px;
+			.settings__content__label__checkbox {
+				color: var(--color-purple) !important;
+			}
+		}
+	}
+	.settings__actions {
+		margin: 0 15px 15px 15px;
+		.settings__actions__button {
+			background-color: var(--color-purple) !important;
+		}
+	}
 }

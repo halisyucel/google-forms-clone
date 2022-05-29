@@ -1,64 +1,64 @@
 .header {
-    display: flex !important;
-    flex-flow: row !important;
-    align-items: flex-end;
-    justify-content: flex-start;
-    height: 64px;
-    padding: 0 16px;
-    color: var(--color-gray-primary) !important;
-    background-color: var(--color-white) !important;
-    .header__logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        padding: 0 16px 0 0;
-        img {
-            height: 32px;
-        }
-    }
-    .header__tabs {
-        height: 100%;
-        & > div > div {
-            height: 100%;
-        }
-        .header__tabs__tab {
-            padding-bottom: 6px;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            text-transform: unset;
-            &[aria-selected='true'] {
-                color: var(--color-black);
-            }
-            &:hover {
-                background-color: transparent;
-            }
-            &:focus {
-                outline: none;
-                box-shadow: none;
-            }
-        }
-    }
-    .header__buttons {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        height: 100%;
-        .header__buttons__button {
-            height: 50px;
-            margin-left: 8px;
-            text-transform: unset;
-            &:nth-child(1) {
-                margin-left: 0;
-                color: var(--color-gray-primary) !important;
-                font-weight: 500 !important;
-                .header__buttons__button__icon {
-                    margin: -4px 0 0 6px;
-                    font-size: 14px;
-                    transform: rotate(-90deg);
-                }
-            }
-        }
-    }
+	display: flex !important;
+	flex-flow: row !important;
+	align-items: flex-end;
+	justify-content: flex-start;
+	height: 64px;
+	padding: 0 16px;
+	color: var(--color-gray-primary) !important;
+	background-color: var(--color-white) !important;
+	.header__logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		padding: 0 16px 0 0;
+		img {
+			height: 32px;
+		}
+	}
+	.header__tabs {
+		height: 100%;
+		& > div > div {
+			height: 100%;
+		}
+		.header__tabs__tab {
+			padding-bottom: 6px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			text-transform: unset;
+			&[aria-selected='true'] {
+				color: var(--color-black);
+			}
+			&:hover {
+				background-color: transparent;
+			}
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+	.header__buttons {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		height: 100%;
+		.header__buttons__button {
+			height: 50px;
+			margin-left: 8px;
+			text-transform: unset;
+			&:nth-child(1) {
+				margin-left: 0;
+				color: var(--color-gray-primary) !important;
+				font-weight: 500 !important;
+				.header__buttons__button__icon {
+					margin: -4px 0 0 6px;
+					font-size: 14px;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+	}
 }
