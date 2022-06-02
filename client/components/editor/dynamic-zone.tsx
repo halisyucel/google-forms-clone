@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/editor.dynamic-zone.module.scss';
 
-const DynamicZone: React.FC = () => {
+const DynamicZone = () => {
 	const form = useSelector((state: RootState) => state.form);
 	return (
 		<div

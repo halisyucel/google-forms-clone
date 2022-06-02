@@ -116,6 +116,7 @@ const SendButton = () => {
 					__html: `
 					.${styles.send_button} {
 						color: var(--color-white) !important;
+						background-color: ${form.themeColor} !important;
 					}
 					.${styles.send_dialog__content__link} {
 						background-color: ${form.backgroundColor};

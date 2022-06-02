@@ -36,7 +36,7 @@ const Title = () => {
 	const saveText = useMemo(() => {
 		switch (editor.save) {
 			case 'saved':
-				return 'Changes saved';
+				return 'All changes are saved';
 			case 'saving':
 				return 'Saving changes...';
 			case 'empty':
