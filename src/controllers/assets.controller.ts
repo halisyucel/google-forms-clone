@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
 import { DeleteUploadSchema, Upload } from '../models/assets.model';
+import { getAllUploads } from '../utils/assets.util';
 import { extractTokenFromHeader } from '../utils/helper.util';
 import { verifyJwtToken } from '../utils/user.util';
 
@@ -14,27 +15,21 @@ export const upload = async (req: Request, res: Response) => {
 		size: req.file?.size,
 		userId: payload?.id,
 	});
+	const uploads = await getAllUploads({ userId: payload?.id });
 	return res.status(200).json({
 		name: upload.getDataValue('name'),
 		mimetype: upload.getDataValue('mimetype'),
 		size: upload.getDataValue('size'),
+		images: uploads,
 	});
 };
 
 export const get = async (req: Request, res: Response) => {
+	console.log(req.headers);
 	const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
 	if (error) return res.status(401).json({ message: error });
-	const uploads = await Upload.findAll({
-		where: { userId: payload?.id },
-		order: [['createdAt', 'DESC']],
-	});
-	return res.status(200).json([
-		...uploads.map((upload) => ({
-			name: upload.getDataValue('name'),
-			mimetype: upload.getDataValue('mimetype'),
-			size: upload.getDataValue('size'),
-		})),
-	]);
+	const uploads = await getAllUploads({ userId: payload?.id });
+	return res.status(200).json(uploads);
 };
 
 export const _delete = async (req: Request, res: Response) => {
@@ -53,5 +48,6 @@ export const _delete = async (req: Request, res: Response) => {
 		return res.status(403).json({ message: 'Forbidden' });
 	fs.unlinkSync(path.join(__dirname, '../../../assets/uploads', upload.getDataValue('name')));
 	await upload.destroy();
-	return res.status(200).json({ status: true });
+	const uploads = await getAllUploads({ userId: jwtVerifyResponse.payload?.id });
+	return res.status(200).json(uploads);
 };

@@ -1,0 +1,32 @@
+.image {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	box-sizing: border-box;
+	width: 170px;
+	height: 120px;
+	margin-right: 13px;
+	padding: 4px;
+	background-color: var(--color-gray-quaternary);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+	&:last-child {
+		margin-right: 0;
+	}
+	&:hover button {
+		opacity: 1;
+	}
+	a:hover {
+		background: transparent;
+	}
+	button {
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+		svg {
+			color: var(--color-white);
+			font-size: 16px;
+		}
+	}
+}

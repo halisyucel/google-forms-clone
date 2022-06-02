@@ -34,7 +34,7 @@ export const Upload = connection.define(
 			},
 		},
 		userId: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.UUID,
 			allowNull: false,
 			validate: {
 				notEmpty: true,

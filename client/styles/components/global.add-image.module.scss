@@ -1,0 +1,14 @@
+.add_image {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 4px 8px 4px 4px;
+	background-color: red;
+	border-top: 1px solid var(--color-border);
+	.add_image__button {
+		height: 36px;
+		text-transform: none;
+	}
+}
