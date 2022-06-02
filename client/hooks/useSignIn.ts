@@ -52,7 +52,7 @@ export default () => {
 				setUsername({ value: username.value, error: true });
 				setUsernameHelperTextProps({
 					type: 'error',
-					message: "Couldn't find your Google Account",
+					message: 'Could not find your Google Account',
 				});
 			})
 			.finally(() => {

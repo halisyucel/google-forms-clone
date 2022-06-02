@@ -153,7 +153,7 @@ export default function useSignUp() {
 			setFormInput('passwordConfirm', 'error', true);
 			setPasswordsHelperTextProps({
 				type: 'error',
-				message: "Those passwords didn't match. Try again.",
+				message: 'Those passwords did not match. Try again.',
 			});
 			result = false;
 		}
