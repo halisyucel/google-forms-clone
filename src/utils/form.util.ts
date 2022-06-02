@@ -1,6 +1,22 @@
 import { Model } from 'sequelize';
 import { FormSchemaType } from '../models/form.model';
 
+export const themeColorToBgColor = (color: string) =>
+	({
+		'#db4437': '#fae3e1',
+		'#673ab7': '#f0ebf8',
+		'#3f51b5': '#eceef8',
+		'#4285f4': '#e9f0f8',
+		'#03a9f4': '#e1f5f8',
+		'#00bcd4': '#e0f7fa',
+		'#ff5722': '#fbe9e7',
+		'#ff9800': '#fff3e0',
+		'#009688': '#e0f2f1',
+		'#4caf50': '#e8f5e9',
+		'#607d8b': '#eceff1',
+		'#9e9e9e': '#fafafa',
+	}[color]);
+
 export interface FormData {
 	id: string;
 	title: string;

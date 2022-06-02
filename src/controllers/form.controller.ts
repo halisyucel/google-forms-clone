@@ -3,6 +3,7 @@ import { CreateFormSchema, Form, GetFormSchema, UpdateFormAttributes } from '../
 import {
 	getFormDataFromModel,
 	getTitleFromSchema,
+	themeColorToBgColor,
 	updateFormAccordingToSchema,
 } from '../utils/form.util';
 import { extractTokenFromHeader } from '../utils/helper.util';
@@ -59,6 +60,10 @@ export const update = async (req: Request, res: Response) => {
 	});
 	if (form === null) return res.status(404).json({ message: 'Form not found' });
 	form.set({ [key]: value });
+	if (key === 'themeColor')
+		form.set({
+			backgroundColor: themeColorToBgColor(value),
+		});
 	await form.save();
 	return res.status(200).json({
 		...getFormDataFromModel(form),

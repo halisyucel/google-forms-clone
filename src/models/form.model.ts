@@ -30,7 +30,7 @@ export const GetFormSchema = Joi.object({
 export const UpdateFormAttributes = Joi.object({
 	id: Joi.string().required(),
 	key: Joi.string().required(),
-	value: Joi.alternatives().try(Joi.string(), Joi.boolean(), Joi.number()).required(),
+	value: Joi.alternatives().try(Joi.string(), Joi.boolean(), Joi.number()).allow(null).required(),
 });
 
 export const Form = connection.define(
@@ -102,7 +102,7 @@ export const Form = connection.define(
 				notEmpty: true,
 			},
 		},
-		fontType: {
+		fontStyle: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			defaultValue: 'BASIC',
@@ -116,7 +116,7 @@ export const Form = connection.define(
 			defaultValue: null,
 		},
 		userId: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.UUID,
 			allowNull: false,
 			validate: {
 				notEmpty: true,
