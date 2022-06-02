@@ -1,0 +1,41 @@
+.theme_drawer {
+	position: fixed;
+	right: -320px;
+	bottom: 0;
+	z-index: 90;
+	width: 300px;
+	height: calc(100vh - 100px);
+	overflow: hidden;
+	background-color: var(--color-white);
+	border-left: 1px solid var(--color-border);
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+	transition: right 0.3s ease-in-out;
+	.theme_drawer__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 56px;
+		padding: 0 20px;
+		border-bottom: 1px solid var(--color-border);
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+		h3 {
+			flex: 1;
+			margin: 0 0 0 12px;
+			color: var(--color-gray-primary);
+			font-weight: 500;
+			font-size: 16px;
+			font-family: var(--font-roboto);
+		}
+	}
+	section {
+		padding: 24px;
+		h5 {
+			margin: 0 0 12px 0;
+			color: var(--color-gray-primary);
+			font-weight: 400;
+			font-size: 12px;
+			font-family: var(--font-roboto);
+			text-transform: uppercase;
+		}
+	}
+}

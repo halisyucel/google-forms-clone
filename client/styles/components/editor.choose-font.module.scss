@@ -1,0 +1,21 @@
+.choose_font {
+	.choose_font__select {
+		width: 100%;
+		height: 48px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 32px;
+		&[datatype='BASIC'] {
+			font-family: var(--font-roboto);
+		}
+		&[datatype='DECORATIVE'] {
+			font-family: var(--font-decorative);
+		}
+		&[datatype='FORMAL'] {
+			font-family: var(--font-formal);
+		}
+		&[datatype='SPRIGHT'] {
+			font-family: var(--font-spright);
+		}
+	}
+}

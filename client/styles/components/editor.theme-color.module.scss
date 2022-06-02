@@ -1,0 +1,26 @@
+.theme_color {
+	.theme_color__colors {
+		display: flex;
+		flex-wrap: wrap;
+		.theme_color__colors__item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 26px;
+			height: 26px;
+			margin: 4px;
+			border-radius: 26px;
+			cursor: pointer;
+			transition: box-shadow 0.3s ease-in-out;
+
+			&:hover {
+				box-shadow: 0 0 0 2px currentColor !important;
+			}
+
+			svg {
+				color: #ffffff;
+				font-size: 18px;
+			}
+		}
+	}
+}
