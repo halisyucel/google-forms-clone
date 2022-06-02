@@ -20,9 +20,7 @@ export const settingsSlice = createSlice({
 	initialState,
 	reducers: {
 		setSetting: (state: Draft<SettingsState>, action: PayloadAction<SetSettingsProps>) => {
-			if (action.payload.key)
-				if (state.hasOwnProperty(action.payload.key))
-					(state as any)[action.payload.key] = action.payload.value;
+			if (action.payload.key) (state as any)[action.payload.key] = action.payload.value;
 		},
 	},
 });

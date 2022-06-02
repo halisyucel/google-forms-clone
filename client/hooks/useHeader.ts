@@ -1,11 +1,8 @@
 import { useCallback, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../redux/store';
 
 export default () => {
 	const navigate = useNavigate();
-	const credentials = useSelector((state: RootState) => state.credentials);
 	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 	const [appsOpen, setAppsOpen] = useState<boolean>(false);
 	const [accountOpen, setAccountOpen] = useState<boolean>(false);
@@ -31,7 +28,6 @@ export default () => {
 		if (!searchValue.trim()) return navigate(`/dashboard/search/${searchValue}`);
 	}, [searchValue]);
 	return {
-		credentials,
 		drawerOpen,
 		setDrawerOpen,
 		appsOpen,

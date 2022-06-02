@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ImageSelector from './components/global/image-selector';
 import Snackbar from './components/global/snackbar';
 import Dashboard from './pages/dashboard';
 import Editor from './pages/dashboard/editor';
@@ -42,5 +43,6 @@ ReactDOM.createRoot(root).render(
 			</Routes>
 		</BrowserRouter>
 		<Snackbar />
+		<ImageSelector />
 	</Provider>,
 );

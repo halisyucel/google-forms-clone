@@ -1,4 +1,5 @@
 import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
+import { colors } from '../../utils/editor';
 
 export interface FormState {
 	id: string;
@@ -12,7 +13,7 @@ export interface FormState {
 	headerImage: string | null;
 	themeColor: string;
 	backgroundColor: string;
-	fontType: string;
+	fontStyle: string;
 	screenshot: string | null;
 	createdAt: string;
 	updatedAt: string;
@@ -20,7 +21,7 @@ export interface FormState {
 
 export interface UpdateFormAttributeProps {
 	key: string;
-	value: string | boolean;
+	value: string | boolean | null;
 }
 
 const initialState: FormState = {
@@ -35,7 +36,7 @@ const initialState: FormState = {
 	headerImage: null,
 	themeColor: '#673ab7',
 	backgroundColor: '#f0ebf8',
-	fontType: 'BASIC',
+	fontStyle: 'BASIC',
 	screenshot: null,
 	createdAt: '',
 	updatedAt: '',
@@ -50,6 +51,9 @@ export const formSlice = createSlice({
 			action: PayloadAction<UpdateFormAttributeProps>,
 		) => {
 			(state as any)[action.payload.key] = action.payload.value;
+			const currentColor = colors.find(({ color }) => color === action.payload.value);
+			if (currentColor && action.payload.key === 'themeColor')
+				(state as any)['backgroundColor'] = currentColor.bgColors[0];
 		},
 		setFormState: (state: Draft<FormState>, action: PayloadAction<FormState>) => {
 			for (const key in action.payload) (state as any)[key] = (action.payload as any)[key];

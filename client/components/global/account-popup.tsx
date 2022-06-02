@@ -9,7 +9,7 @@ import {
 	Divider,
 	Paper,
 } from '@mui/material';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import lookie from 'lookie';
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +19,9 @@ import { throwAlert, updateBackdrop } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/global.account.module.scss';
 import { PopupProps } from '../../utils/types';
+
+// TODO: burayı hook'a al
+// TODO: ayrıca bu elemanın görünürlük sorunu var
 
 const AccountPopup = (props: PopupProps) => {
 	const navigate = useNavigate();
@@ -42,7 +45,7 @@ const AccountPopup = (props: PopupProps) => {
 			.then(() => {
 				logout();
 			})
-			.catch((err: AxiosError) => {
+			.catch(() => {
 				dispatch(
 					throwAlert({
 						message: 'Oops! Something went wrong.',

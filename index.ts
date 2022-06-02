@@ -19,7 +19,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api/user', UserRoute);
 app.use('/api/form', FormRoute);
-app.use('/assets', AssetsRoute);
+app.use('/api/assets', AssetsRoute);
 app.use('/uploads', express.static('assets/uploads'));
 
 (async () => {

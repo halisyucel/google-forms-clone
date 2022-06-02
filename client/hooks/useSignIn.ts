@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Config from '../config';
@@ -43,7 +43,7 @@ export default () => {
 				username: username.value.trim().split('@gmail.com')[0],
 			},
 		})
-			.then((response: AxiosResponse) => {
+			.then(() => {
 				setUsername({ value: username.value, error: false });
 				setUsernameHelperTextProps({ type: 'none' });
 				navigate(`/sign-in/password/${username.value.trim().split('@gmail.com')[0]}`);

@@ -13,7 +13,6 @@ import Drawer from './drawer';
 
 const Header = () => {
 	const {
-		credentials,
 		drawerOpen,
 		setDrawerOpen,
 		appsOpen,
