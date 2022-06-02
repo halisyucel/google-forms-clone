@@ -28,13 +28,13 @@ const ChooseImage = () => {
 		});
 	}, [updateForm]);
 	useEffect(() => {
-		if (ref === 'header-image' && selectedImage) {
+		if (ref === 'header-image' && selectedImage !== null) {
 			updateForm({
 				key: 'headerImage',
 				value: selectedImage,
 			});
 		}
-	}, [ref, selectedImage, headerImage]);
+	}, [ref, selectedImage, updateForm]);
 	return (
 		<section className={styles.choose_image}>
 			<h5>Header</h5>
