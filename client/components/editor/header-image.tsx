@@ -1,20 +1,21 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
 import Config from '../../config';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/editor.header-image.module.scss';
 
 const HeaderImage = () => {
-	const form = useSelector((state: RootState) => state.form);
-	return (
-		<div
-			className={styles.header_image}
-			style={{
-				display: form.headerImage ? 'block' : 'none',
-				backgroundImage: `url(${Config.UPLOADS_URL}/${form.headerImage})`,
-			}}
-		/>
-	);
+	const { headerImage } = useSelector((state: RootState) => state.form);
+	return headerImage ? (
+		<div className={styles.header_image}>
+			<LazyLoadImage
+				src={`${Config.UPLOADS_URL}/${headerImage}`}
+				alt={'header image'}
+				width={'100%'}
+			/>
+		</div>
+	) : null;
 };
 
 export default HeaderImage;

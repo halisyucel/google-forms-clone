@@ -19,7 +19,6 @@ export interface ImageProps {
 
 const Image: React.FC<ImageProps> = ({ url, isSelected, onSelect, src, isDefault = false }) => {
 	const dispatch = useDispatch();
-	const form = useSelector((state: RootState) => state.form);
 	const credentials = useSelector((state: RootState) => state.credentials);
 	const [deleteButtonIsDisabled, setDeleteButtonIsDisabled] = useState<boolean>(false);
 	const handleSelect = useCallback(
@@ -73,41 +72,29 @@ const Image: React.FC<ImageProps> = ({ url, isSelected, onSelect, src, isDefault
 			});
 	}, [dispatch, credentials.token, url, deleteButtonIsDisabled]);
 	return (
-		<React.Fragment>
-			<div
-				key={url}
-				className={styles.image}
-				style={{
-					backgroundImage: `url(${Config.UPLOADS_URL}/${url})`,
-				}}
-				onClick={handleSelect}
-				aria-selected={isSelected}
-			>
-				{isDefault ? (
-					<a href={src} target={'_blank'} rel={'noopener noreferrer'}>
-						<IconButton size={'small'}>
-							<SourceIcon />
-						</IconButton>
-					</a>
-				) : (
-					<a aria-disabled={deleteButtonIsDisabled} onClick={handleDelete}>
-						<IconButton size={'small'}>
-							<DeleteIcon />
-						</IconButton>
-					</a>
-				)}
-			</div>
-			<style
-				dangerouslySetInnerHTML={{
-					__html: `
-						.${styles.image}[aria-selected="true"] {
-							border: 6px solid ${form.backgroundColor};
-							border-radius: 8px;
-						}
-					`,
-				}}
-			/>
-		</React.Fragment>
+		<div
+			key={url}
+			className={styles.image}
+			style={{
+				backgroundImage: `url(${Config.UPLOADS_URL}/${url})`,
+			}}
+			onClick={handleSelect}
+			aria-selected={isSelected}
+		>
+			{isDefault ? (
+				<a href={src} target={'_blank'} rel={'noopener noreferrer'}>
+					<IconButton size={'small'}>
+						<SourceIcon />
+					</IconButton>
+				</a>
+			) : (
+				<a aria-disabled={deleteButtonIsDisabled} onClick={handleDelete}>
+					<IconButton size={'small'}>
+						<DeleteIcon />
+					</IconButton>
+				</a>
+			)}
+		</div>
 	);
 };
 
