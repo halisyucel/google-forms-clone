@@ -3,15 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-// TODO: diğer elementlerde de bunu kullan
-export interface BackdropProps {
-	name: string;
-	backgroundColor?: string;
-	color?: string;
-}
+// TODO: React.FC<T> use all props
 
-const Backdrop: React.FC<BackdropProps> = ({ color, backgroundColor, name }) => {
-	const backdrops = useSelector((state: RootState) => state.backdrops);
+const Backdrop = () => {
+	const { open, color, backgroundColor } = useSelector((state: RootState) => state.backdrop);
 	return (
 		<MuiBackdrop
 			sx={{
@@ -19,7 +14,7 @@ const Backdrop: React.FC<BackdropProps> = ({ color, backgroundColor, name }) => 
 				color: color ?? 'rgb(26, 115, 232)',
 				backgroundColor: backgroundColor ?? 'rgba(255, 255, 255, 0.5)',
 			}}
-			open={name === 'layout' || (backdrops as any)[name]}
+			open={open ?? false}
 		>
 			<CircularProgress color={'inherit'} />
 		</MuiBackdrop>

@@ -39,8 +39,8 @@ const Template: React.FC<TemplateProps> = ({ schema, title, imageUrl, onClick })
 const Templates = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const settings = useSelector((state: RootState) => state.settings);
-	const credentials = useSelector((state: RootState) => state.credentials);
+	const { token } = useSelector((state: RootState) => state.credentials);
+	const { showRecentlyUsedTemplates } = useSelector((state: RootState) => state.settings);
 	const hideAllTemplatesButton = useRef<HTMLButtonElement>(null);
 	const [openHideAllTemplatesButton, setOpenHideAllTemplatesButton] = useState<boolean>(false);
 	const [hideAllTemplatesPopupPosition, setHideAllTemplatesPopupPosition] =
@@ -59,15 +59,15 @@ const Templates = () => {
 		(schema = 'empty') => {
 			dispatch(
 				updateBackdrop({
-					name: 'dashboard',
-					status: true,
+					open: true,
+					backgroundColor: 'rgba(255, 255, 255, 1)',
 				}),
 			);
 			axios({
 				method: 'POST',
 				url: `${Config.API_URL}/form/`,
 				data: { schema },
-				headers: { Authorization: `Bearer ${credentials.token}` },
+				headers: { Authorization: `Bearer ${token}` },
 			})
 				.then((res: AxiosResponse) => {
 					navigate(`/dashboard/editor/${res.data.id}`);
@@ -81,22 +81,17 @@ const Templates = () => {
 					);
 				})
 				.finally(() => {
-					dispatch(
-						updateBackdrop({
-							name: 'dashboard',
-							status: false,
-						}),
-					);
+					dispatch(updateBackdrop({ open: false }));
 				});
 		},
-		[navigate, dispatch, credentials.token],
+		[navigate, dispatch, token],
 	);
 	return (
 		<React.Fragment>
 			<div
 				className={styles.templates}
 				style={{
-					display: settings.showRecentlyUsedTemplates ? 'flex' : 'none',
+					display: showRecentlyUsedTemplates ? 'flex' : 'none',
 				}}
 			>
 				<div className={styles.templates__toolbar}>
@@ -177,7 +172,7 @@ const Templates = () => {
 					className={styles.hidden_button}
 					onClick={() => createForm('empty')}
 					style={{
-						display: settings.showRecentlyUsedTemplates ? 'none' : 'flex',
+						display: showRecentlyUsedTemplates ? 'none' : 'flex',
 					}}
 				>
 					<span className={styles.hidden_button__pseudo_button}>

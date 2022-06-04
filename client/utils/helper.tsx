@@ -1,7 +1,7 @@
 import React from 'react';
 import type { HelperText } from './types';
 
-const createHelperText = ({ type = 'none', message }: HelperText) => {
+export const createHelperText = ({ type = 'none', message }: HelperText) => {
 	if (type === 'none') return null;
 	if (type === 'error')
 		return (
@@ -16,5 +16,3 @@ const createHelperText = ({ type = 'none', message }: HelperText) => {
 			</div>
 		);
 };
-
-export { createHelperText };

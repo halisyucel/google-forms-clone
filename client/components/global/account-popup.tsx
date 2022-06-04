@@ -34,7 +34,7 @@ const AccountPopup = (props: PopupProps) => {
 	}, []);
 	const deleteAccount = useCallback(() => {
 		setOpenDialog(false);
-		dispatch(updateBackdrop({ name: 'dashboard', status: true }));
+		dispatch(updateBackdrop({ open: true }));
 		axios({
 			method: 'DELETE',
 			url: `${Config.API_URL}/user/`,
@@ -54,12 +54,7 @@ const AccountPopup = (props: PopupProps) => {
 				);
 			})
 			.finally(() => {
-				dispatch(
-					updateBackdrop({
-						name: 'dashboard',
-						status: false,
-					}),
-				);
+				dispatch(updateBackdrop({ open: false }));
 			});
 	}, [logout, credentials.token, dispatch]);
 	return (

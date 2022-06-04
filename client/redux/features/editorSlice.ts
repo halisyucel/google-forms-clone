@@ -3,16 +3,18 @@ import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 export interface EditorState {
 	save: 'empty' | 'saving' | 'saved' | 'error';
 	tabsValue: string;
+	selectedEntity: string | null;
 }
 
 export interface UpdateEditorProps {
 	key: string;
-	value: string;
+	value: string | null;
 }
 
 const initialState: EditorState = {
 	save: 'empty',
 	tabsValue: 'questions',
+	selectedEntity: null,
 };
 
 export const editorSlice = createSlice({

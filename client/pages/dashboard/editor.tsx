@@ -5,64 +5,54 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import DynamicZone from '../../components/editor/dynamic-zone';
 import Header from '../../components/editor/header';
-import Backdrop from '../../components/global/backdrop';
-import LoadingLayout from '../../components/layouts/loading-layout';
+import AuthProvider from '../../components/layouts/auth-provider';
 import Config from '../../config';
-import useAuthentication from '../../hooks/useAuthentication';
 import { setFormState, throwAlert, updateBackdrop } from '../../redux/actions';
 import { RootState } from '../../redux/store';
 
 const Editor: React.FC = () => {
-	const { loading } = useAuthentication({ fallback: '/sign-in' });
-	const params = useParams();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const credentials = useSelector((state: RootState) => state.credentials);
-	const form = useSelector((state: RootState) => state.form);
+	const { id } = useParams();
+	const { token } = useSelector((state: RootState) => state.credentials);
+	const { title } = useSelector((state: RootState) => state.form);
 	useEffect(() => {
-		if (!credentials.token) return;
+		if (!token) return;
+		dispatch(updateBackdrop({ open: true, backgroundColor: 'rgba(255, 255, 255, 1)' }));
 		axios({
 			method: 'GET',
 			url: `${Config.API_URL}/form/`,
 			headers: {
-				Authorization: `Bearer ${credentials.token}`,
+				Authorization: `Bearer ${token}`,
 			},
-			params: {
-				id: params.id,
-			},
+			params: { id },
 		})
 			.then((res: AxiosResponse) => {
 				dispatch(setFormState({ ...res.data }));
+				dispatch(updateBackdrop({ open: false }));
 			})
 			.catch(() => {
 				dispatch(
 					throwAlert({
-						message: 'Oops! Something went wrong.',
+						message: 'Oops! Could not load page.',
 						severity: 'error',
 					}),
 				);
-				setTimeout(() => navigate('/error'), 3000);
-			})
-			.finally(() => {
-				dispatch(
-					updateBackdrop({
-						name: 'editor',
-						status: false,
-					}),
-				);
+				setTimeout(() => {
+					navigate('/dashboard');
+				}, 2000);
 			});
-	}, [params.id, credentials.token]);
+	}, [id, token, dispatch, navigate]);
 	return (
-		<LoadingLayout loading={loading}>
+		<AuthProvider fallback={'/sign-in'}>
 			<Helmet>
-				<title>{form.title} - Google Forms Clone</title>
+				<title>{title} - Google Forms Clone</title>
 				<link rel={'icon'} type={'image/png'} href={'/favicon-forms.png'} />
 				<meta name={'robots'} content={'noindex, nofollow'} />
 			</Helmet>
 			<Header />
 			<DynamicZone />
-			<Backdrop name={'editor'} backgroundColor={'rgba(255, 255, 255, 1)'} />
-		</LoadingLayout>
+		</AuthProvider>
 	);
 };
 

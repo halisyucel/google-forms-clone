@@ -1,4 +1,4 @@
-export * from './features/backdropsSlice';
+export * from './features/backdropSlice';
 export * from './features/credentialsSlice';
 export * from './features/editorSlice';
 export * from './features/formSlice';

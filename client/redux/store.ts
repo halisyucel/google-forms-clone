@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import backdropsReducer from './features/backdropsSlice';
+import backdropReducer from './features/backdropSlice';
 import credentialsReducer from './features/credentialsSlice';
 import editorReducer from './features/editorSlice';
 import formReducer from './features/formSlice';
@@ -9,7 +9,7 @@ import snackbarReducer from './features/snackbarSlice';
 
 export const store = configureStore({
 	reducer: {
-		backdrops: backdropsReducer,
+		backdrop: backdropReducer,
 		credentials: credentialsReducer,
 		form: formReducer,
 		settings: settingsReducer,
