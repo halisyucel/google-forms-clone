@@ -43,10 +43,10 @@ const Image: React.FC<ImageProps> = ({ url, isSelected, onSelect, src, isDefault
 				name: url,
 			},
 		})
-			.then((res: AxiosResponse) => {
+			.then((response: AxiosResponse) => {
 				dispatch(
 					updateImages(
-						res.data.map((image: any) => ({
+						response.data.map((image: any) => ({
 							url: image.name,
 						})),
 					),

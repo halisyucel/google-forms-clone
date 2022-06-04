@@ -1,5 +1,5 @@
 import { Button, CircularProgress } from '@mui/material';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Config from '../../config';
@@ -47,9 +47,9 @@ const UploadImage: React.FC<UploadImageProps> = ({ open }) => {
 				},
 				data: formData,
 			})
-				.then((res) => {
+				.then((response: AxiosResponse) => {
 					setSection('uploaded');
-					setUploadedImage(res.data.name);
+					setUploadedImage(response.data.name);
 					dispatch(
 						throwAlert({
 							message: 'Image uploaded successfully',
@@ -58,7 +58,7 @@ const UploadImage: React.FC<UploadImageProps> = ({ open }) => {
 					);
 					dispatch(
 						updateImages(
-							res.data.images.map((image: any) => ({
+							response.data.images.map((image: any) => ({
 								url: image.name,
 							})),
 						),

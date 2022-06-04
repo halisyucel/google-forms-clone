@@ -40,10 +40,10 @@ const Images: React.FC<ImagesProps> = ({ open }) => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then((res: AxiosResponse) => {
+			.then((response: AxiosResponse) => {
 				dispatch(
 					updateImages(
-						res.data.map((image: any) => ({
+						response.data.map((image: any) => ({
 							url: image.name,
 						})),
 					),

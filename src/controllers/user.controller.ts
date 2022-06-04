@@ -26,19 +26,17 @@ export const signIn = async (req: Request, res: Response) => {
 export const signUp = async (req: Request, res: Response) => {
 	const { error, value } = UserSignUpSchema.validate(req.body);
 	if (error) return res.status(400).json({ message: error.details[0].message });
-	const user = await User.findOne({ where: { username: value.username } });
-	if (user === null) {
-		const passwordHash = bcrypt.hashSync(value.password, 10);
-		const user = await User.create({
-			firstName: value.firstName,
-			lastName: value.lastName,
-			username: value.username,
-			passwordHash: passwordHash,
-		});
-		const credentials = createJwtToken(user);
-		return res.json({ ...credentials });
-	}
-	return res.status(409).json({ message: 'Username already exists' });
+	let user = await User.findOne({ where: { username: value.username } });
+	if (user !== null) return res.status(409).json({ message: 'Username already exists' });
+	const passwordHash = bcrypt.hashSync(value.password, 10);
+	user = await User.create({
+		firstName: value.firstName,
+		lastName: value.lastName,
+		username: value.username,
+		passwordHash: passwordHash,
+	});
+	const credentials = createJwtToken(user);
+	return res.json({ ...credentials });
 };
 
 export const checkUser = async (req: Request, res: Response) => {
@@ -56,7 +54,7 @@ export const checkToken = async (req: Request, res: Response) => {
 	return res.status(200).json({ token, ...payload });
 };
 
-// todo yeni bir şeyler ürettikçe burada silmeli
+// TODO: yeni bir şeyler ürettikçe burada silmeli
 export const deleteUser = async (req: Request, res: Response) => {
 	const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
 	if (error) return res.status(401).json({ message: error });

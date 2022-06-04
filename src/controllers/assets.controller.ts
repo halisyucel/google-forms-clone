@@ -25,7 +25,6 @@ export const upload = async (req: Request, res: Response) => {
 };
 
 export const get = async (req: Request, res: Response) => {
-	console.log(req.headers);
 	const { error, payload } = verifyJwtToken(extractTokenFromHeader(req));
 	if (error) return res.status(401).json({ message: error });
 	const uploads = await getAllUploads({ userId: payload?.id });

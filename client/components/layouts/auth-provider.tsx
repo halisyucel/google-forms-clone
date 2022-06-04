@@ -23,8 +23,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children, next, fallback })
 				backgroundColor: 'rgba(255, 255, 255, 1)',
 			}),
 		);
-		const { token } = lookie.get('GOOGLE_FORMS_CLONE_CREDENTIALS') as CredentialsState;
-		if (!token) {
+		const local = lookie.get('GOOGLE_FORMS_CLONE_CREDENTIALS') as CredentialsState;
+		if (!local) {
 			dispatch(updateBackdrop({ open: false }));
 			fallback && navigate(fallback, { replace: true });
 			return;
@@ -33,11 +33,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children, next, fallback })
 			method: 'POST',
 			url: `${Config.API_URL}/user/authenticate`,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${local.token}`,
 			},
 		})
-			.then((res: AxiosResponse) => {
-				const credentials = { ...res.data };
+			.then((response: AxiosResponse) => {
+				const credentials = { ...response.data };
 				lookie.set('GOOGLE_FORMS_CLONE_CREDENTIALS', credentials);
 				dispatch(setCredentials(credentials));
 				next && navigate(next, { replace: true });

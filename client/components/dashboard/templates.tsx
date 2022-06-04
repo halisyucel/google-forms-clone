@@ -69,8 +69,8 @@ const Templates = () => {
 				data: { schema },
 				headers: { Authorization: `Bearer ${token}` },
 			})
-				.then((res: AxiosResponse) => {
-					navigate(`/dashboard/editor/${res.data.id}`);
+				.then((response: AxiosResponse) => {
+					navigate(`/dashboard/editor/${response.data.id}`);
 				})
 				.catch(() => {
 					dispatch(

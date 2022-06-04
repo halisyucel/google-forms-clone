@@ -1,12 +1,15 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import lookie from 'lookie';
 import { useCallback, useMemo, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Config from '../config';
+import { setCredentials } from '../redux/features/credentialsSlice';
 import { createHelperText } from '../utils/helper';
 import { FormElement, HelperText } from '../utils/types';
 
 export default function useSignUp() {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState<boolean>(false);
 	const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -206,8 +209,9 @@ export default function useSignUp() {
 				.then((response: AxiosResponse) => {
 					setFormInput('username', 'error', false);
 					setUsernameHelperTextProps({ type: 'none' });
-					lookie.set('token', response.data.token, '8h');
-					navigate('/');
+					lookie.set('GOOGLE_FORMS_CLONE_CREDENTIALS', { ...response.data });
+					dispatch(setCredentials({ ...response.data }));
+					navigate('/dashboard');
 				})
 				.catch((error: AxiosError) => {
 					if (error.response?.status === 409) {
@@ -224,7 +228,18 @@ export default function useSignUp() {
 					setLoading(false);
 				});
 		}
-	}, [formValidation, username.value, setFormInput, setUsernameHelperTextProps]);
+	}, [
+		formValidation,
+		username.value,
+		setFormInput,
+		setUsernameHelperTextProps,
+		firstName.value,
+		dispatch,
+		lastName.value,
+		password.value,
+		passwordConfirm.value,
+		navigate,
+	]);
 	return {
 		loading,
 		firstName,
