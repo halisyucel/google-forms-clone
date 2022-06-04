@@ -23,7 +23,7 @@ app.use('/api/assets', AssetsRoute);
 app.use('/uploads', express.static('assets/uploads'));
 
 (async () => {
-	await connection.sync({ alter: true });
+	await connection.sync({ force: true });
 	app.listen(port, () => {
 		console.log(`[server]: Server is running at http://localhost:${port}`);
 	});

@@ -5,9 +5,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../styles/components/editor.toolbar.module.scss';
 import Account from '../global/account';
+import HeaderTitle from './header-title';
 import SendButton from './send-button';
 import ThemeOptionsButton from './theme-options-button';
-import Title from './title';
 
 const Toolbar = () => {
 	const [accountIsOpen, setAccountIsOpen] = useState<boolean>(false);
@@ -21,7 +21,7 @@ const Toolbar = () => {
 					<img src={'/forms-brand.svg'} alt={'Google Forms Clone'} />
 				</IconButton>
 			</Link>
-			<Title />
+			<HeaderTitle />
 			<div style={{ flex: '1' }} />
 			<ThemeOptionsButton />
 			<Tooltip title={'Preview'}>

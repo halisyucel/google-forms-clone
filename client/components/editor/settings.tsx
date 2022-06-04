@@ -41,6 +41,14 @@ const Settings: React.FC<SettingsProps> = ({ open }) => {
 			value: confirmationMessageValue,
 		});
 	}, [confirmationMessage, confirmationMessageValue, updateForm]);
+	const handleKeyPressConfirmationMessage = useCallback(
+		(event: React.KeyboardEvent<HTMLInputElement>) => {
+			if (event.key === 'Enter') {
+				handleSaveConfirmationMessage();
+			}
+		},
+		[handleSaveConfirmationMessage],
+	);
 	useEffect(() => {
 		if (!open) handleCancelConfirmationMessage();
 	}, [open, handleCancelConfirmationMessage]);
@@ -126,6 +134,7 @@ const Settings: React.FC<SettingsProps> = ({ open }) => {
 						spellCheck={false}
 						autoComplete={'off'}
 						onChange={handleChangeConfirmationMessage}
+						onKeyPress={handleKeyPressConfirmationMessage}
 					/>
 				</div>
 				<div style={{ flex: '1' }} />

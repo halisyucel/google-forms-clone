@@ -5,7 +5,9 @@ import useUpdateForm from '../../hooks/useUpdateForm';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/editor.title.module.scss';
 
-const Title = () => {
+// TODO - update style file name
+
+const HeaderTitle = () => {
 	const updateForm = useUpdateForm();
 	const form = useSelector((state: RootState) => state.form);
 	const editor = useSelector((state: RootState) => state.editor);
@@ -69,4 +71,4 @@ const Title = () => {
 	);
 };
 
-export default Title;
+export default HeaderTitle;

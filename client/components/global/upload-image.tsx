@@ -14,6 +14,8 @@ export interface UploadImageProps {
 
 export type UploadImageSection = 'browse' | 'uploading' | 'uploaded';
 
+// TODO - i missed drag and drop area
+
 const UploadImage: React.FC<UploadImageProps> = ({ open }) => {
 	const dispatch = useDispatch();
 	const form = useSelector((state: RootState) => state.form);

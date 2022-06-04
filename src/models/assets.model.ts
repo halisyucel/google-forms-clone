@@ -6,8 +6,6 @@ export const DeleteUploadSchema = Joi.object({
 	name: Joi.string().required(),
 });
 
-// todo bu elemana visible invisible özelliği eklenecek
-
 export const Upload = connection.define(
 	'Upload',
 	{

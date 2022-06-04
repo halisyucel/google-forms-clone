@@ -9,11 +9,13 @@ const HeaderImage = () => {
 	const { headerImage } = useSelector((state: RootState) => state.form);
 	return headerImage ? (
 		<div className={styles.header_image}>
-			<LazyLoadImage
-				src={`${Config.UPLOADS_URL}/${headerImage}`}
-				alt={'header image'}
-				width={'100%'}
-			/>
+			<div className={styles.header_image__wrapper}>
+				<LazyLoadImage
+					src={`${Config.UPLOADS_URL}/${headerImage}`}
+					alt={'header image'}
+					width={'100%'}
+				/>
+			</div>
 		</div>
 	) : null;
 };

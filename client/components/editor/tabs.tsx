@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateEditor } from '../../redux/features/editorSlice';
 import { RootState } from '../../redux/store';
 import styles from '../../styles/components/editor.tabs.module.scss';
+import Tab from './tab';
+
+const tabValues = ['questions', 'answers', 'settings'];
 
 export type TabsValue = 'questions' | 'answers' | 'settings';
-
-// TODO: form useSelector den gelenleri genel olarak içeri böyle al
 
 const Tabs = () => {
 	const dispatch = useDispatch();
@@ -30,46 +31,26 @@ const Tabs = () => {
 		[dispatch],
 	);
 	return (
-		<React.Fragment>
-			<div className={styles.tabs_section}>
-				<div className={styles.tabs_section__tabs}>
-					<span
+		<div className={styles.tabs_section}>
+			<div className={styles.tabs_section__tabs}>
+				{tabValues.map((value, index) => (
+					<Tab
+						key={index}
+						value={value}
 						className={styles.tabs_section__tabs__tab}
-						onClick={() => setTabsValue('questions')}
-					>
-						Questions
-					</span>
-					<span
-						className={styles.tabs_section__tabs__tab}
-						onClick={() => setTabsValue('answers')}
-					>
-						Answers
-					</span>
-					<span
-						className={styles.tabs_section__tabs__tab}
-						onClick={() => setTabsValue('settings')}
-					>
-						Settings
-					</span>
-					<span
-						style={{ left: `${tabsCursorLeftPosition}px` }}
-						className={styles.tabs_section__tabs__cursor}
+						backgroundColor={backgroundColor}
+						onClick={() => setTabsValue(value)}
 					/>
-				</div>
+				))}
+				<span
+					style={{
+						left: `${tabsCursorLeftPosition}px`,
+						backgroundColor: themeColor,
+					}}
+					className={styles.tabs_section__tabs__cursor}
+				/>
 			</div>
-			<style
-				dangerouslySetInnerHTML={{
-					__html: `
-						.${styles.tabs_section__tabs__tab}:hover {
-							background-color: ${backgroundColor};
-						}
-						.${styles.tabs_section__tabs__cursor} {
-							background-color: ${themeColor};
-						}
-					`,
-				}}
-			/>
-		</React.Fragment>
+		</div>
 	);
 };
 
